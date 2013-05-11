@@ -14,6 +14,22 @@ function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
   $scope.properties = [];
   $scope.orderProp = "likes";
 
+  $scope.mapOptions = {
+    center: new google.maps.LatLng(59.324, 18.069423337342),
+    zoom: 14,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    styles: [
+      {
+        "stylers": [
+          { "gamma": 0.26 },
+          { "lightness": 40 },
+          { "saturation": -86 },
+          { "hue": "#0044ff" }
+        ]
+      }
+    ]
+  };
+
   restData.query(function(result) {
     $scope.companiesPreSearch = result;
 
