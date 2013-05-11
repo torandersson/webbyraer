@@ -61,8 +61,7 @@ a {color: #e44d26;}
 
 
 .results {margin-top: 6rem;}
-.results > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;  -webkit-animation: minimise 500ms linear;
-    -moz-animation: minimise 500ms linear;}
+.results > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;}
 .results img {display: block; margin: 0 auto; max-width: 100%;}
 .results > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 
@@ -161,9 +160,9 @@ a {color: #e44d26;}
     z-index: 10000;
 
     /* Transition opacity on open */
-    -webkit-transition: opacity 500ms ease-in;
-    -moz-transition: opacity 500ms ease-in;
-    transition: opacity 500ms ease-in;
+    -webkit-transition: opacity 200ms ease-in;
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in;
 
     /* Hide for now */
     opacity: 0;
@@ -186,8 +185,8 @@ a {color: #e44d26;}
     margin: 10% auto;
 
     /* Default minimise animation */
-    -webkit-animation: minimise 500ms linear;
-    -moz-animation: minimise 500ms linear;
+    -webkit-animation: mymove 100ms linear;
+    -moz-animation: mymove 100ms linear;
 
     /* Prettify */
     padding: 30px;
@@ -195,10 +194,23 @@ a {color: #e44d26;}
     background: #fff;
 }
 
+@-webkit-keyframes mymove /*Safari and Chrome*/
+{
+from {top:0px;}
+to {top:200px;}
+}
+
+@-webkit-keyframes mymove2 /*Safari and Chrome*/
+{
+from {top:200px;}
+to {top:0px;}
+}
+
+
 /* Override animation on modal open */
 .modal:target > div {
-    -webkit-animation-name: bounce;
-    -moz-animation-name: bounce;
+    -webkit-animation: mymove2 500ms linear;
+
 }
 
 .modal h2 {
@@ -206,24 +218,6 @@ a {color: #e44d26;}
     padding: 0 0 20px;
 }
 
-@-webkit-keyframes bounce {
-  0% {
-    -webkit-transform: scale3d(0.1,0.1,1);
-    box-shadow: 0 3px 20px rgba(0,0,0,0.9);
-  }
-  55% {
-    -webkit-transform: scale3d(1.08,1.08,1);
-    box-shadow: 0 10px 20px rgba(0,0,0,0);
-  }
-  75% {
-    -webkit-transform: scale3d(0.95,0.95,1);
-    box-shadow: 0 0 20px rgba(0,0,0,0.9);
-  }
-  100% {
-    -webkit-transform: scale3d(1,1,1);
-    box-shadow: 0 3px 20px rgba(0,0,0,0.9);
-  }
-}
 
 @-webkit-keyframes minimise {
   0% {
@@ -234,33 +228,8 @@ a {color: #e44d26;}
   }
 }
 
-@-moz-keyframes bounce {
-  0% {
-    -moz-transform: scale3d(0.1,0.1,1);
-    box-shadow: 0 3px 20px rgba(0,0,0,0.9);
-  }
-  55% {
-    -moz-transform: scale3d(1.08,1.08,1);
-    box-shadow: 0 10px 20px rgba(0,0,0,0);
-  }
-  75% {
-    -moz-transform: scale3d(0.95,0.95,1);
-    box-shadow: 0 0 20px rgba(0,0,0,0.9);
-  }
-  100% {
-    -moz-transform: scale3d(1,1,1);
-    box-shadow: 0 3px 20px rgba(0,0,0,0.9);
-  }
-}
 
-@-moz-keyframes minimise {
-  0% {
-    -moz-transform: scale3d(1,1,1);
-  }
-  100% {
-    -moz-transform: scale3d(0.1,0.1,1);
-  }
-}
+
 
 /* Modal close link */
 .modal a[href="#close"] {
