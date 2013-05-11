@@ -6,15 +6,14 @@ body { background-color: #c1a968; margin: 0; padding: 0;   font-family: "ff-meta
 
      background-image: url('../../images/fussball.png');
   background-repeat: no-repeat;
-  background-position: center -25px;
+  background-position: center 198px;
   background-size: 455 311px;
-  padding: 230px 2rem 0 2rem;
 }
 
 ul, li {margin: 0; padding: 0; list-style: none;}
 
 input {
-    margin: 1em auto;
+       margin: 1em auto;
     display: block;
     
 
@@ -25,14 +24,14 @@ input {
 
     border-radius: 2px;
     background: #fff;
-    border: 1px solid rgba(0,0,0,0.1);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    border: none;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,1.6);
     font-size: 2rem;
     font-family: "ff-meta-serif-web-pro",serif;
 font-style: italic;
 
 
-    height: 55px;
+    height: 29px;
 
     font-weight: 500;
 
@@ -47,16 +46,37 @@ a {color: #e44d26;}
 
 
 .intro { padding: 7rem 2rem 2rem 2rem; max-width: 100%; margin: 0 auto; position: relative;}
-.intro img {display: block; margin: 0 auto;}
+.intro img {display: block; margin: 0 auto 195px;width: 190px;}
 .intro h1 {text-align: center; display: block; width: 100%; padding: 3rem 0 1.5rem 0;}
 
 
 .search { max-width: 78rem; margin: 0 auto; padding: 0 2rem 2rem 2rem;}
 
 .case {margin-top: 6rem;}
-.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;}
+.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 3rem; border-radius: 10px; display: none;}
 .case img {display: block; margin: 0 auto; max-width: 100%;}
 .case > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
+
+p.start {
+font-family: "ff-meta-web-pro-condensed",sans-serif;
+font-style: normal;
+font-weight: 400;
+
+font-size: 24px;
+line-height: 28px;
+text-align: justify;
+text-transform: uppercase;
+display: inline;
+}
+
+h2.start {
+
+font-size: 5.4rem;
+
+margin: 0;
+display: inline-block;
+margin: 21px 0px 34px 0px;
+}
 .casecontent {max-width: 55rem; margin: 0 auto;}
 .casecontent h1 {margin: 1rem 0 0 0;}
 .casecontent p {margin: 1rem 0 0 0;}
