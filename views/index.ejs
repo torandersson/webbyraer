@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" ng-controller="FacebookLikeCtrl">
   <% include head %>
-  <body>
+  <body ng-class="{'background':activeCompany}">
     <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -41,10 +41,9 @@
       
       <input ng-model="query" placeholder="Sök efter webbyrå...">
 
-   
 
 
-<aside id="example" class="modal">
+<aside id="example" class="modal" ng-class={'foreground_modal':activeCompany}>
     <div>
         <h1>{{activeCompany.name}}</h1>
         <ul>
@@ -53,11 +52,28 @@
          <!-- <li>Twitter</li> -->
         </ul>
         <p>{{activeCompany.about}}</p>
+              <h2>Karta</h2>
+
+                <!-- this is the confusing part. we have to point the map marker directive
+  at an existing google.maps.Marker object, so it can hook up events -->
+<!--<div ng-repeat="marker in myMarkers" ui-map-marker="myMarkers[$index]"
+  ui-event="{'map-click': 'openMarkerInfo(marker)'}">
+</div>-->
+ 
+<!--<div ui-map-info-window="myInfoWindow">
+  <h1>{{currentMarker.name}}</h1>
+    
+</div>-->
+
+                <!--<div id="map_canvas" ui-map="myMap" class="map"
+                ui-event="{'map-click': 'addMarker($event)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }"
+              ui-options="mapOptions">
+              </div>-->
 
        
 
 
-        <a href="#close" title="Close">Close</a>
+        <a href="#close" ng-click="{activeCompany=null}" title="Close">Close</a>
     </div>
 </aside>
 
@@ -66,8 +82,7 @@
 <section class="results">
 
   <ul>
-
-    <li class="animated flipInX"ng-class="{'hide': companies.length <= 0 || query == ''}">
+    <li class="animated flipInX"ng-class="{'hide': companies.length <= 0 || query.length < 3 }">
       <h2>Sökresultat</h2> 
       <table >
           <thead>
@@ -113,8 +128,14 @@
       <li class="animated flipInX">
 
 
+<<<<<<< HEAD
           <h2>Gillar</h2>
           <table class="table table-striped">
+=======
+          <h2>Likes</h2>
+          <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=likes"></iframe>
+        <!--  <table class="table table-striped">
+>>>>>>> cb765a5fb4bb5d2d0565633b4c0c572ba90ec67e
             <thead>
               <tr>
                 <th>#</th>
@@ -127,7 +148,7 @@
                 <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].likes %></td></tr>
               <% } %>
             <% } %>
-          </table>
+          </table>-->
         
 
 
@@ -139,8 +160,15 @@
 
 
 
+<<<<<<< HEAD
          <h2>Följare</h2>
       <table class="table table-striped">
+=======
+         <h2>Twitter followers</h2>
+          <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=followers_count"></iframe>
+
+      <!--<table class="table table-striped">
+>>>>>>> cb765a5fb4bb5d2d0565633b4c0c572ba90ec67e
         <thead>
           <tr>
             <th>#</th>
@@ -154,7 +182,7 @@
             <%}%>
           <% } %>
 
-      </table>
+      </table>-->
 
 
 
@@ -163,8 +191,15 @@
       <li class="animated flipInX">
 
 
+<<<<<<< HEAD
       <h2>Aktiva fans</h2>
       <table class="table table-striped">
+=======
+      <h2>Active fans</h2>
+       <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=talking_about_count"></iframe>
+
+     <!-- <table class="table table-striped">
+>>>>>>> cb765a5fb4bb5d2d0565633b4c0c572ba90ec67e
         <thead>
           <tr>
             <th>#</th>
@@ -177,7 +212,7 @@
                 <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].talking_about_count %></td></tr>
               <% } %>
             <% } %>
-      </table>
+      </table>-->
    
 
 
@@ -186,8 +221,15 @@
       <li class="animated flipInX">
 
 
+<<<<<<< HEAD
          <h2>Var här</h2>
       <table class="table table-striped">
+=======
+         <h2>Were here</h2>
+          <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=were_here_count"></iframe>
+
+      <!--<table class="table table-striped">
+>>>>>>> cb765a5fb4bb5d2d0565633b4c0c572ba90ec67e
         <thead>
           <tr>
             <th>#</th>
@@ -200,7 +242,7 @@
             <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].were_here_count %></td></tr>
           <% } %>
         <% } %>
-      </table>
+      </table>-->
 
 
 
@@ -209,8 +251,15 @@
       <li>
 
 
+<<<<<<< HEAD
     <h2>Incheckningar</h2>
       <table class="table table-striped">
+=======
+    <h2>Checkins</h2>
+     <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=checkins"></iframe>
+
+      <!--<table class="table table-striped">
+>>>>>>> cb765a5fb4bb5d2d0565633b4c0c572ba90ec67e
         <thead>
           <tr>
             <th>#</th>
@@ -223,7 +272,7 @@
             <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].checkins %></td></tr>
           <% } %>
         <% } %>
-      </table>
+      </table> -->
 
       </li>
 

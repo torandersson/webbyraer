@@ -180,6 +180,21 @@ a {color: #e44d26;}
     /* at time of writing (Feb 2012), pointer-events not supported by Opera or IE */
 }
 
+.background {
+    overflow :hidden; 
+   /* background-color : white; */
+} 
+
+.foreground_modal {
+    overflow : scroll;
+    background-color : white;
+}
+
+.foreground_body {
+     overflow : 'scroll';
+}
+
+
 /* Content */
 .modal > div {
     width: 100%;
@@ -188,6 +203,7 @@ a {color: #e44d26;}
     position: relative;
     margin: 10% auto;
 
+    
     /* Default minimise animation */
     -webkit-animation: mymove 100ms linear;
     -moz-animation: mymove 100ms linear;

@@ -1,9 +1,7 @@
 
-
+/*
 $('.openModal').click(function (e) {
-	alert("hej");
-   	e.preventDefault();
-    $('body').css({
+	$('body').css({
        
         overflow : 'hidden'
         background-color : 'white'
@@ -24,4 +22,4 @@ $('.modalDialog a').click(function (e) {
         overflow : 'scroll'
 
     });
-});
+});*/
