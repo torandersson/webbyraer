@@ -1,0 +1,120 @@
+section, article, header, footer, nav, aside, hgroup {display: block;}
+
+html {font-size: 10px; color: #302f2a;}
+
+body { background-color: #c1a968; margin: 0; padding: 0; font-family: "ff-meta-serif-web-pro",serif; 
+     background-image: url('../../images/fussball.png');
+  background-repeat: no-repeat;
+  background-position: center -25px;
+  background-size: 455 311px;
+  padding: 230px 122px 0 122px;
+}
+
+ul, li {margin: 0; padding: 0; list-style: none;}
+
+h1 {font-size: 5rem; line-height: 4rem; margin: 0; text-align: center; }
+h2 {font-size: 1.4rem; line-height: 3rem;  text-transform: uppercase; }
+h3 {font-size: 4rem; line-height: 6.3rem; margin: 0; }
+p {font-size: 1.8rem; line-height: 2.7rem; max-width: 70rem; }
+p + p {line-height: 2.7rem;}
+a {color: #e44d26;}
+
+
+.intro { padding: 7rem 2rem 2rem 2rem; max-width: 100%; margin: 0 auto; position: relative;}
+.intro img {display: block; margin: 0 auto;}
+.intro h1 {text-align: center; display: block; width: 100%; padding: 3rem 0 1.5rem 0;}
+
+
+.search { max-width: 78rem; margin: 0 auto; padding: 0 2rem 2rem 2rem;}
+
+.case {margin-top: 6rem;}
+.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;}
+.case img {display: block; margin: 0 auto; max-width: 100%;}
+.case > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
+.casecontent {max-width: 55rem; margin: 0 auto;}
+.casecontent h1 {margin: 1rem 0 0 0;}
+.casecontent p {margin: 1rem 0 0 0;}
+.casecontent p + p {font-size: 1.6rem; line-height: 2.5rem;}
+.casecontent a { background-color: white; font-size: 1.4rem; display: block; margin: 2rem auto 0 auto; padding: 12px 0; text-align: center; text-decoration: none; color: rgb(238, 44, 44); border-radius: 4px; max-width: 90%; text-transform: bold; -webkit-transition: background-color 100ms ease-out; transition: background-color 100ms ease-out;}
+.casecontent a:hover {background-color:#e44d26; color:#fff; }
+
+
+.clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+
+
+/* Ta fram menyn för desktop */
+/*
+@media only screen and (min-width: 640px) {
+
+    .menutop { height: 4rem; display: block; position: fixed; top: 0; left: 0; } 
+    .menutop > ul {float: left;}
+    .menutop > ul a {font-size: 1.4rem; border-bottom: none; border-right: 1px solid #fdfcd7; padding: 1rem 1.5rem 1rem 1.5rem;}
+   	.menutop > ul a:hover {background: red; color: white;}
+    .menutop > ul li {float: left;}
+    .menutop > * > ul { float: right;}
+    .menutop > * > ul a { display: block; padding: 1.3rem 2.67em 1.2rem 2.8rem; text-align: center; text-decoration: none; border-left: 1px solid #fdfcd7; color: #e44d26;}
+    .menutop img {float: left; display: block; width: 3.8rem;}
+    .menutop .home {display: block;}
+
+    .intro { padding: 10rem 2rem 2rem 2rem;}
+
+   
+
+}
+
+
+/* Två columer för case */
+/*
+@media only screen and (min-width: 980px) {
+    .case > * {overflow: hidden;}
+    .case > * > * { min-height: 70rem; overflow: hidden;}
+ 	.case > * > * > * {max-width: 1580px; margin: 0 auto; position: relative; }
+ 	.case img {position: absolute; left: 450px; overflow: hidden; max-width:94%%;}
+ 	.casecontent {max-width: 48rem; width: 50rem; padding-top: 7rem; margin: 0;}
+
+    .case img { -webkit-transition: left 700ms ease-out; transition: left 700ms ease-out; }
+   
+    
+ 	h1 {text-align: left;}
+    .intro h1 {padding: 8rem 0 3.5rem 0}
+ 	.casecontent a {max-width: 50%; margin: 2rem 0 0;}
+
+    .intro ul { }
+    .intro ul li { display: block; padding: 1.3rem .67em 1.2rem 2.8rem; float: left; text-align: center; text-decoration: none;  color: #e44d26;}
+
+} 
+
+
+@media only screen and (min-width: 1280px) {
+    
+ 
+
+} 
+
+
+
+/* Ändra REM nr1 */
+/*
+@media only screen and (min-width: 1280px) and (min-height:700px){
+    html {font-size: 12px;}
+
+        .case > * > * { min-height: 80rem; overflow: hidden;}
+       .case img {max-width: 75%;}
+       .case img {position: absolute; left: 510px; overflow: hidden; max-width:94%%;}
+
+}
+
+
+/* Fontförändringar */
+/*
+@media only screen and (min-width: 640px) {
+
+    h1 {font-size: 5rem; line-height: 5rem;}
+    .intro h1 {font-size: 9rem;}
+
+   
+
+}
+*/
+
+
