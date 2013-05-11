@@ -14,15 +14,16 @@ body { background-color: #c1a968; margin: 0; padding: 0;   font-family: "ff-meta
 ul, li {margin: 0; padding: 0; list-style: none;}
 
 input {
-
     margin: 1em auto;
     display: block;
     
 
-    width: 40%;
+    width: 393px;
     background: #ccc;
     padding: 25px;
-    border-radius: 7px;
+    
+
+    border-radius: 2px;
     background: #fff;
     border: 1px solid rgba(0,0,0,0.1);
     box-shadow: 0 1px 1px rgba(0,0,0,0.3);
@@ -31,7 +32,7 @@ input {
 font-style: italic;
 
 
-    height: 26px;
+    height: 55px;
 
     font-weight: 500;
 
