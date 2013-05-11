@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" ng-controller="FacebookLikeCtrl">
   <% include head %>
-  <body ng-class="{'background':activeCompany}">
+  <body ng-class="{'background':activeCompany !=null, 'foreground_body':activeCompany==null}">
     <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -93,7 +93,7 @@
 <p>Enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit.</p>
 
 
-        <a href="#close" ng-click="{activeCompany=null}" title="Close">Close</a>
+        <a href="#close" ng-click="activeCompany=null" title="Close">Close</a>
     </div>
 </aside>
 
