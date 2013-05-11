@@ -19,6 +19,10 @@ function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
 
   });
 
+  $scope.ShowCompanyInformationModal = function(company) {
+      $scope.activeCompany = company;
+  };
+
   $scope.$watch("query",function() {
     if($scope.companies.length === 0)
       $scope.companies = $scope.companiesPreSearch

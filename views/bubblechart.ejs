@@ -43,7 +43,7 @@ function change() {
 
 
 
-var diameter = 960,
+var diameter = 300,
     format = d3.format(",d"),
     color = d3.scale.category20c();
 
@@ -58,9 +58,9 @@ var svg = d3.select("body").append("svg")
     .attr("class", "bubble");
 
 d3.json("/rest/companies", function(error, root) {
-  //console.log("error",error,"root",root.facebook); 
+  console.log("error",error,"root",root); 
   var node = svg.selectAll(".node")
-      .data(bubble.nodes(classes(root.facebook))
+      .data(bubble.nodes(classes(root))
       .filter(function(d) { return !d.children; }))
     .enter().append("g")
       .attr("class", "node")
@@ -85,9 +85,7 @@ function classes(root) {
   var classes = [];
 
   function recurse(name, node) {
-    console.log("name",name,"node",node);
     node.forEach(function(child) { 
-      console.log("nodes",child)
      classes.push({packageName: child.name, className: child.name, value: child['<%=metric%>'],elem:child});
     });
     

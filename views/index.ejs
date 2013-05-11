@@ -45,18 +45,18 @@
 
         
   
-  <a href="#example" class="openModal">Modal</a>
+<a href="#example" class="openModal">Modal</a>
 
 <aside id="example" class="modal">
     <div>
         <p>"företagets logga, ta från facebook/twitter?"<p>
-        <h2>Företagets namn</h2>
+        <h2>{{activeCompany.name}}</h2>
         <ul>
-          <li>Hemsida</li>
-          <li>Facebook</li>
-          <li>Twitter</li>
+          <li><a hfre="{{activeCompany.website}}">Hemsida</a></li>
+          <li><a hfre="{{activeCompany.link}}">Facebooksida</a></li>
+         <!-- <li>Twitter</li> -->
         </ul>
-        <p>Description från facebook</p>
+        <p>{{activeCompany.about}}</p>
 
         <a href="#close" title="Close">Close</a>
     </div>
@@ -69,7 +69,7 @@
   <ul>
 
     <li ng-class="{'hide': companies.length <= 0}">
-      <h2>Sökresultat</h2> 
+      <h2>Sökresultat {{orderProp}}</h2> 
       <table >
           <thead>
             <tr>
@@ -87,8 +87,11 @@
 
           <tbody>
             <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
-              <td>{{$index+1}}</td>
-              <td><a href="{{company.website}}">{{company.name}}</a></td>
+              <td>{{$index+1}}
+               
+              </td>
+
+              <td><a href="#example" ng-click="$parent.ShowCompanyInformationModal(company)" class="openModal">{{company.name}}</a></td>
               <td data-ng-bind-html-unsafe="company.likes"></td>
               <td><i title="{{company.like_trend}} sedan igår" ng-class="{'icon-arrow-down': company.like_trend<0,'icon-arrow-up': company.like_trend>0, 'icon-arrow-right': company.like_trend==0}"></i></td>
               <td data-ng-bind-html-unsafe="company.followers_count"></td>
