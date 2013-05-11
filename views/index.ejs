@@ -39,13 +39,12 @@
 
       <h1>WEBBYRÅER I SVERIGE</h1>
       
-      <input ng-model="query" placeholder="Sök efter webbyrå">
+      <input ng-model="query" placeholder="Sök efter webbyrå...">
+
+      <a href="#example" class="openModal">Eller visa alla</a>
+
      
 
-
-        
-  
-<a href="#example" class="openModal">Modal</a>
 
 <aside id="example" class="modal">
     <div>
@@ -64,12 +63,12 @@
 
       
         
-<section class="case">
+<section class="results">
 
   <ul>
 
-    <li ng-class="{'hide': companies.length <= 0}">
-      <h2>Sökresultat {{orderProp}}</h2> 
+    <li ng-class="{'hide': companies.length <= 0 || query == ''}">
+      <h2>Sökresultat</h2> 
       <table >
           <thead>
             <tr>
@@ -106,7 +105,11 @@
         </table>
 
       </li>
+</ul>
+</section>
 
+<section class="case">
+<ul>
       <li>
 
 

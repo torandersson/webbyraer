@@ -1,19 +1,39 @@
 section, article, header, footer, nav, aside, hgroup {display: block;}
 
-html {font-size: 10px; color: #302f2a;}
+html {font-size: 16px; color: #302f2a;}
 
-body { background-color: #c1a968; margin: 0; padding: 0; font-family: "ff-meta-web-pro";,serif; 
+body { background-color: #c1a968; margin: 0; padding: 0;   font-family: "ff-meta-serif-web-pro",serif;
+
      background-image: url('../../images/fussball.png');
   background-repeat: no-repeat;
   background-position: center -25px;
   background-size: 455 311px;
-  padding: 230px 122px 0 122px;
+  padding: 230px 2rem 0 2rem;
 }
 
 ul, li {margin: 0; padding: 0; list-style: none;}
 
+input {
+
+    margin: 1em auto;
+    display: block;
+    width: 50%;
+    background: #ccc;
+    text-align: center;
+    padding: 25px;
+    border-radius: 7px;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.1);
+    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    font-size: 2rem;
+    font-family: "ff-meta-serif-web-pro",serif;
+font-style: italic;
+font-weight: 500;
+
+}
+
 h1 {font-size: 5rem; line-height: 4rem; margin: 0; text-align: center; }
-h2 {font-size: 3.4rem; line-height: 3rem;  text-transform: uppercase; }
+h2 {font-size: 3.4rem; line-height: 3rem; }
 h3 {font-size: 4rem; line-height: 6.3rem; margin: 0; }
 p {font-size: 1.8rem; line-height: 2.7rem; max-width: 70rem; }
 p + p {line-height: 2.7rem;}
@@ -28,7 +48,8 @@ a {color: #e44d26;}
 .search { max-width: 78rem; margin: 0 auto; padding: 0 2rem 2rem 2rem;}
 
 .case {margin-top: 6rem;}
-.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;}
+.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;  -webkit-animation: minimise 500ms linear;
+    -moz-animation: minimise 500ms linear;}
 .case img {display: block; margin: 0 auto; max-width: 100%;}
 .case > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 .casecontent {max-width: 55rem; margin: 0 auto;}
@@ -38,6 +59,12 @@ a {color: #e44d26;}
 .casecontent a { background-color: white; font-size: 1.4rem; display: block; margin: 2rem auto 0 auto; padding: 12px 0; text-align: center; text-decoration: none; color: rgb(238, 44, 44); border-radius: 4px; max-width: 90%; text-transform: bold; -webkit-transition: background-color 100ms ease-out; transition: background-color 100ms ease-out;}
 .casecontent a:hover {background-color:#e44d26; color:#fff; }
 
+
+.results {margin-top: 6rem;}
+.results > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;  -webkit-animation: minimise 500ms linear;
+    -moz-animation: minimise 500ms linear;}
+.results img {display: block; margin: 0 auto; max-width: 100%;}
+.results > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 
@@ -152,7 +179,8 @@ a {color: #e44d26;}
 
 /* Content */
 .modal > div {
-    width: 70%;
+    width: 100%;
+    height: 100%;
     background: #fff;
     position: relative;
     margin: 10% auto;
@@ -254,7 +282,7 @@ a {color: #e44d26;}
 
     /* Position */
     position: absolute;
-    right: -10px;
+    right: 100px;
     top: -10px;
     width: 1.5em;
     padding: 1px 1px 1px 2px;
