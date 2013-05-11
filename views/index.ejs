@@ -25,32 +25,33 @@
      js.src = "//connect.facebook.net/en_US/all.js";
      ref.parentNode.insertBefore(js, ref);
    }(document));
+
 </script>
+
+
+
     <section>
     
-  
-
-    <div id='fb-root'></div>
+      <div id='fb-root'></div>
     
-</section>
-    <div class="container-fluid">
+    </section>
+
+
       <h1>WEBBYRÅER I SVERIGE</h1>
-      <div class="row-fluid">
-        <div class="row-fluid">
-          <span class="span12">
-          <p class="lead">Vilken webbyrå i Sverige har har flest likes på facebook? Vilken webbyrå har flest följare på twitter? Sök efter ditt företag, hittar du det inte Skicka ett E-mail till <a href="mailto:labs@obviuse.se">obviuse labs</a> med företagets facebooksida och twitter namn. Trend är skillnaden mellan gårdagens och dagens likes</p>
-        </span>
-        </div>
-        <div class="row-fluid">
-          <span class="span12">
-          <input ng-model="query" placeholder="Sök efter webbyrå">
-        </span>
-        </div>
+      
+      <input ng-model="query" placeholder="Sök efter webbyrå">
+     
         
-      </div>
-    <div class="row-fluid">
-      <div class="span12">    
-        <table class="table table-striped" ng-class="{'hide': companies.length <= 0}">
+     
+      
+        
+<section class="case">
+
+  <ul>
+
+    <li ng-class="{'hide': companies.length <= 0}">
+      <h2>Sökresultat</h2> 
+      <table >
           <thead>
             <tr>
               <th>#</th>
@@ -61,10 +62,10 @@
               <th><a ng-click="orderProp='checkins'">Checkins</a></th>
               <th><a ng-click="orderProp='talking_about_count'">Talking about</a></th>
               <th><a ng-click="orderProp='were_here_count'">Were here</a></th>
-             <!-- <th><a ng-click="orderProp='number_of_friends'">Friends</a></th> -->
-              
+              <!-- <th><a ng-click="orderProp='number_of_friends'">Friends</a></th> -->      
             </tr>
           </thead>
+
           <tbody>
             <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
               <td>{{$index+1}}</td>
@@ -81,9 +82,12 @@
             </tr>
           </tbody>
         </table>
-      </div>
-      <div class="row-fluid">
-        <div class="span4">
+
+      </li>
+
+      <li>
+
+
           <h2>Likes</h2>
           <table class="table table-striped">
             <thead>
@@ -99,8 +103,17 @@
               <% } %>
             <% } %>
           </table>
-        </div><!--/span-->
-          <div class="span4">
+        
+
+
+
+          </li>
+
+      <li>
+
+
+
+
          <h2>Twitter followers</h2>
       <table class="table table-striped">
         <thead>
@@ -117,8 +130,14 @@
           <% } %>
 
       </table>
-    </div><!--/span-->
-        <div class="span4">
+
+
+
+      </li>
+
+      <li>
+
+
       <h2>Active fans</h2>
       <table class="table table-striped">
         <thead>
@@ -134,11 +153,14 @@
               <% } %>
             <% } %>
       </table>
-    </div><!--/span-->
    
-  </div><!--/row-->
-  <div class="row-fluid">
-    <div class="span4">
+
+
+    </li>
+
+      <li>
+
+
          <h2>Were here</h2>
       <table class="table table-striped">
         <thead>
@@ -154,8 +176,14 @@
           <% } %>
         <% } %>
       </table>
-    </div><!--/span-->
-     <div class="span4">
+
+
+
+      </li>
+
+      <li>
+
+
     <h2>Checkins</h2>
       <table class="table table-striped">
         <thead>
@@ -171,8 +199,11 @@
           <% } %>
         <% } %>
       </table>
-    </div><!--/span-->
-    <div class="span4">
+
+      </li>
+
+      <li>
+
       <h2>Var jobbar dina vänner?</h2>
       <button class='btn' ng-click="Facebook.login()">Connect with Facebook</button>  
       <div ng-show="Facebook.getAuth()">
@@ -195,20 +226,20 @@
                 </tr>
               </tbody>
             </table>
-      </div>
-    </div>
+
+  </li>
+
+</ul>
   
-  </div><!--/row-->
+
        
 
-      <hr>
+</section>
 
-      <footer>
-        <p>&copy; Obviuse 2013</p>
-        <!--<p>Current users:<span id="users"></span><p>-->
-      </footer>
 
-    </div><!--/.fluid-container-->
+
     <% include foot %>  
+
+
   </body>
 </html>
