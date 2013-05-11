@@ -15,7 +15,8 @@ exports.index = function(request, response){
 
  	if(!date)
  	{
- 		date=getDate();
+ 		date = getDate();
+ 		
  	}
 
 	// using async library to get information in parallell
@@ -45,6 +46,7 @@ exports.index = function(request, response){
 
 var getDate = function(){
 	var dateNow = new Date();
+	dateNow.setDate(dateNow.getDate()-1);
 	var dd = dateNow.getDate();
 	var monthSingleDigit = dateNow.getMonth() + 1
     , mm = monthSingleDigit < 10 ? '0' + monthSingleDigit : monthSingleDigit;
