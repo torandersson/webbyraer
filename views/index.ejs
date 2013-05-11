@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" ng-controller="FacebookLikeCtrl">
   <% include head %>
-  <body>
+  <body ng-class="{'background':activeCompany}">
     <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -41,12 +41,12 @@
       
       <input ng-model="query" placeholder="Sök efter webbyrå...">
 
-      <a href="#example" class="openModal">Eller visa alla</a>
+   <!--   <a href="#example" class="openModal">Eller visa alla</a> -->
 
      
 
 
-<aside id="example" class="modal">
+<aside id="example" class="modal" ng-class={'foreground_modal':activeCompany}>
     <div>
         <p>"företagets logga, ta från facebook/twitter?"<p>
         <h2>{{activeCompany.name}}</h2>
@@ -69,10 +69,10 @@
     
 </div>-->
 
-                <div id="map_canvas" ui-map="myMap" class="map"
+                <!--<div id="map_canvas" ui-map="myMap" class="map"
                 ui-event="{'map-click': 'addMarker($event)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }"
               ui-options="mapOptions">
-              </div>
+              </div>-->
 
        <h1>Nullam In Dui</h1>
 
@@ -93,7 +93,7 @@
 <p>Enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit.</p>
 
 
-        <a href="#close" title="Close">Close</a>
+        <a href="#close" ng-click="{activeCompany=null}" title="Close">Close</a>
     </div>
 </aside>
 
@@ -102,8 +102,7 @@
 <section class="results">
 
   <ul>
-
-    <li class="animated flipInX"ng-class="{'hide': companies.length <= 0 || query == ''}">
+    <li class="animated flipInX"ng-class="{'hide': companies.length <= 0 || query.length < 3 }">
       <h2>Sökresultat</h2> 
       <table >
           <thead>
