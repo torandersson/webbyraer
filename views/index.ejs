@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" ng-controller="FacebookLikeCtrl">
   <% include head %>
-  <body ng-class="{'background':activeCompany !=null, 'foreground_body':activeCompany==null}">
+  <body ng-cloak ng-class="{'background':activeCompany !=null, 'foreground_body':activeCompany==null}">
     <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -47,8 +47,8 @@
     <div>
         <h1>{{activeCompany.name}}</h1>
         <ul>
-          <li><a hfre="{{activeCompany.website}}">Hemsida</a></li>
-          <li><a hfre="{{activeCompany.link}}">Facebooksida</a></li>
+          <li><a href="{{activeCompany.website}}">Hemsida</a></li>
+          <li><a href="{{activeCompany.link}}">Facebooksida</a></li>
          <!-- <li>Twitter</li> -->
         </ul>
         <p>{{activeCompany.about}}</p>
@@ -79,10 +79,10 @@
 
       
         
-<section class="results">
+<section class="results" class="hide" ng-class="{'hide': companies.length <= 0 || query.length < 3 }">
 
   <ul>
-    <li class="animated flipInX"ng-class="{'hide': companies.length <= 0 || query.length < 3 }">
+    <li class="animated flipInX" >
       <h2>Sökresultat</h2> 
       <table>
           <thead>
