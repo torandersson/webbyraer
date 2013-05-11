@@ -238,7 +238,9 @@ to {top:0px;}
     padding: 0 0 20px;
 }
 
-.modal h1 {text-align: left;}
+.modal p {max-width: 80%;}
+
+.modal h1 {text-align: left; margin: 11px 0px 28px 0px}
 
 
 @-webkit-keyframes minimise {
@@ -268,13 +270,15 @@ to {top:0px;}
 
 /* Create close button */
 .modal a[href="#close"]:after {
-    content: 'X';
+     content: '';
     display: block;
+
+    background-image: url('../../images/close.png');
 
     /* Position */
     position: absolute;
-    right: 100px;
-    top: -10px;
+    right: 130px;
+    top: 31px;
     width: 1.5em;
     padding: 1px 1px 1px 2px;
 
@@ -283,11 +287,11 @@ to {top:0px;}
     text-shadow: none;
     text-align: center;
     font-weight: bold;
-    background: #000;
+    width: 55px;
+    height: 56px;
     color: #fff;
     border: 3px solid #fff;
     border-radius: 20px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
     .modal a[href="#close"]:focus:after,
