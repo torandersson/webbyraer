@@ -1,0 +1,22 @@
+   <div class="span4">
+                <h2>Karta</h2>
+<div ng-repeat="marker in myMarkers" ui-map-marker="myMarkers[$index]"
+  ui-event="{'map-click': 'openMarkerInfo(marker)'}">
+</div>
+ 
+<div ui-map-info-window="myInfoWindow">
+  <h1>{{currentMarker.name}}</h1>
+    
+</div>
+
+                <div id="map_canvas" ui-map="myMap" class="map"
+                ui-event="{'map-click': 'addMarker($event)', 'map-zoom_changed': 'setZoomMessage(myMap.getZoom())' }"
+              ui-options="mapOptions">
+              </div>
+            </div>
+
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaUAbUAOXPjDu_fMu4Ar-qUMRFBrnY2o8&sensor=true">
+    </script>

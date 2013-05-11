@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+text {
+  font: 10px sans-serif;
+}
+
+</style>
+
+
+<a href="#" class="change" data-metric="likes"  >likes</a>
+<a href="#" class="change" data-metric="talking_about_count" >Talking about</a>
+
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+d3.selectAll(".change")
+    .on("click", change);
+
+function change() {
+  d3.event.preventDefault();
+  console.log("change",this);
+  var node = svg.selectAll(".node")
+  console.log("node",node.selectAll("circle"));
+
+  node.selectAll("circle").transition()            
+        .delay(0)            
+        .duration(1000)
+        .attr("r", function(d){console.log(d);return 0;})
+        .each("end", animateSecondStep);
+
+
+  function animateSecondStep(){
+    d3.select(this)
+      .transition()
+        .duration(1000)
+        .attr("r", function(d){console.log(d);return d.elem.talking_about_count;});
+  };
+
+}
+
+
+
+var diameter = 960,
+    format = d3.format(",d"),
+    color = d3.scale.category20c();
+
+var bubble = d3.layout.pack()
+    .sort(null)
+    .size([diameter, diameter])
+    .padding(1.5);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+    .attr("class", "bubble");
+
+d3.json("/rest/companies", function(error, root) {
+  //console.log("error",error,"root",root.facebook); 
+  var node = svg.selectAll(".node")
+      .data(bubble.nodes(classes(root.facebook))
+      .filter(function(d) { return !d.children; }))
+    .enter().append("g")
+      .attr("class", "node")
+     .attr("transform", function(d) {return "translate(" + d.x + "," + d.y + ")"; });
+
+  node.append("title")
+      .text(function(d) { return d.className + ": " + format(d.value); })
+
+  node.append("circle")
+      .attr("r", function(d) { return d.r; })
+      .style("fill", function(d) { return color(d.packageName); });
+
+  node.append("text")
+      .attr("dy", ".3em")
+      .style("text-anchor", "middle")
+      .text(function(d) { return d.className.substring(0, d.r / 3); });
+
+});
+
+// Returns a flattened hierarchy containing all leaf nodes under the root.
+function classes(root) {  
+  var classes = [];
+
+  function recurse(name, node) {
+    console.log("name",name,"node",node);
+    node.forEach(function(child) { 
+      console.log("nodes",child)
+     classes.push({packageName: child.name, className: child.name, value: child['<%=metric%>'],elem:child});
+    });
+    
+  }
+
+  recurse(null, root);
+  return {children: classes};
+}
+
+d3.select(self.frameElement).style("height", diameter + "px");
+
+</script>

@@ -1,0 +1,14 @@
+--- 
+applications: 
+  .: 
+    name: webyraer
+    infra: eu-aws
+    framework: 
+      name: node
+      info: 
+        exec: 
+        mem: 64M
+        description: Node.js Application
+    instances: 1
+    mem: 64M
+    url: ${name}.${target-base}

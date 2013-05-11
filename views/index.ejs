@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="FacebookLikeCtrl">
+  <% include head %>
+  <body>
+    <script>
+  // Additional JS functions here
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '515228728516239', // App ID
+      channelUrl : '//localhost/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional init code here
+
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
+    <section>
+    
+  
+
+    <div id='fb-root'></div>
+    
+</section>
+    <div class="container-fluid">
+      <h1>WEBBYRÅER I SVERIGE</h1>
+      <div class="row-fluid">
+        <div class="row-fluid">
+          <span class="span12">
+          <p class="lead">Vilken webbyrå i Sverige har har flest likes på facebook? Vilken webbyrå har flest följare på twitter? Sök efter ditt företag, hittar du det inte Skicka ett E-mail till <a href="mailto:labs@obviuse.se">obviuse labs</a> med företagets facebooksida och twitter namn. Trend är skillnaden mellan gårdagens och dagens likes</p>
+        </span>
+        </div>
+        <div class="row-fluid">
+          <span class="span12">
+          <input ng-model="query" placeholder="Sök efter webbyrå">
+        </span>
+        </div>
+        
+      </div>
+    <div class="row-fluid">
+      <div class="span12">    
+        <table class="table table-striped" ng-class="{'hide': companies.length <= 0}">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Företag</th>
+              <th><a ng-click="orderProp='likes'">Likes</a></th>
+              <th><a ng-click="orderProp='like_trend'">Trend</a></th>
+              <th><a ng-click="orderProp='followers_count'">Twitter följare</a></th>
+              <th><a ng-click="orderProp='checkins'">Checkins</a></th>
+              <th><a ng-click="orderProp='talking_about_count'">Talking about</a></th>
+              <th><a ng-click="orderProp='were_here_count'">Were here</a></th>
+             <!-- <th><a ng-click="orderProp='number_of_friends'">Friends</a></th> -->
+              
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
+              <td>{{$index+1}}</td>
+              <td><a href="{{company.website}}">{{company.name}}</a></td>
+              <td data-ng-bind-html-unsafe="company.likes"></td>
+              <td><i title="{{company.like_trend}} sedan igår" ng-class="{'icon-arrow-down': company.like_trend<0,'icon-arrow-up': company.like_trend>0, 'icon-arrow-right': company.like_trend==0}"></i></td>
+              <td data-ng-bind-html-unsafe="company.followers_count"></td>
+              <td data-ng-bind-html-unsafe="company.checkins"></td>
+              <td data-ng-bind-html-unsafe="company.talking_about_count"></td>
+              <td data-ng-bind-html-unsafe="company.were_here_count"></td>
+              <!--<td>
+                 <a ng-class="{'hide':company.number_of_friends == 0}" bs-popover="company.popover" data-unique="1" data-original-title="With Angular" data-trigger="hover" data-html="true" data-placement="left">{{company.number_of_friends}}</a>
+              </td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row-fluid">
+        <div class="span4">
+          <h2>Likes</h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Företag</th>
+                <th>Facebook likes</th>
+              </tr>
+            </thead>
+            <% for(var i=0; i<pages.sort(function(a,b){return b.likes - a.likes;}).length; i++) {%>
+              <% if (i < 10) { %>
+                <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].likes %></td></tr>
+              <% } %>
+            <% } %>
+          </table>
+        </div><!--/span-->
+          <div class="span4">
+         <h2>Twitter followers</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Företag</th>
+            <th>Followers</th>
+          </tr>
+        </thead>
+       <% for(var i=0; i<twitter_accounts.sort(function(a,b){return b.followers_count - a.followers_count;}).length; i++) {%>
+            <% if(i <10) {%>
+            <tr><td><%= i+1 %></td><td><a href="<%=companies[twitter_accounts[i].screen_name.toLowerCase()].url %>"><%= companies[twitter_accounts[i].screen_name.toLowerCase()].name %></a></td><td><%= twitter_accounts[i].followers_count %></td></tr>
+            <%}%>
+          <% } %>
+
+      </table>
+    </div><!--/span-->
+        <div class="span4">
+      <h2>Active fans</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Företag</th>
+            <th>Fans</th>
+          </tr>
+        </thead>
+        <% for(var i=0; i<pages.sort(function(a,b){return b.talking_about_count - a.talking_about_count;}).length; i++) {%>
+              <% if (i < 10) { %>
+                <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].talking_about_count %></td></tr>
+              <% } %>
+            <% } %>
+      </table>
+    </div><!--/span-->
+   
+  </div><!--/row-->
+  <div class="row-fluid">
+    <div class="span4">
+         <h2>Were here</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Företag</th>
+            <th>were here</th>
+          </tr>
+        </thead>
+        <% for(var i=0; i<pages.sort(function(a,b){return b.were_here_count - a.were_here_count;}).length; i++) {%>
+          <% if (i < 10) { %>
+            <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].were_here_count %></td></tr>
+          <% } %>
+        <% } %>
+      </table>
+    </div><!--/span-->
+     <div class="span4">
+    <h2>Checkins</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Företag</th>
+            <th>Checkins</th>
+          </tr>
+        </thead>
+        <% for(var i=0; i<pages.sort(function(a,b){return b.checkins - a.checkins;}).length; i++) {%>
+          <% if (i < 10) { %>
+            <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].checkins %></td></tr>
+          <% } %>
+        <% } %>
+      </table>
+    </div><!--/span-->
+    <div class="span4">
+      <h2>Var jobbar dina vänner?</h2>
+      <button class='btn' ng-click="Facebook.login()">Connect with Facebook</button>  
+      <div ng-show="Facebook.getAuth()">
+      <!--  <h4>Access Token:</h4>
+        <p ng-bind="Facebook.getAuth().accessToken"></p>-->
+      <button class='btn btn-small' ng-click="Facebook.logout()">Logout</button>
+      <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Företag</th>
+                  <th>Vänner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="like in companies | filter:query | orderBy:talkingAboutCount:true" ng-class="{hide : $index>9}">
+                  <td>{{$index+1}}</td>
+                  <td>{{like.name}}</td>
+                  <td>{{like[talkingAboutCount]}}</td>
+                </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  
+  </div><!--/row-->
+       
+
+      <hr>
+
+      <footer>
+        <p>&copy; Obviuse 2013</p>
+        <!--<p>Current users:<span id="users"></span><p>-->
+      </footer>
+
+    </div><!--/.fluid-container-->
+    <% include foot %>  
+  </body>
+</html>

@@ -1,0 +1,40 @@
+  
+
+ 
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <h2>Likes</h2>
+    <table>
+      <tr><th>Company</th><th>Likes</th></tr>
+      <% for(var i=0; i<pages.sort(function(a,b){return b.likes - a.likes;}).length; i++) {%>
+   		 <tr><td><a href="/<%= pages[i].name %>"><%= pages[i].name %></a></td><td><%= pages[i].likes %></td></tr>
+      <% } %>
+    </table>
+
+    <h2>Checkins</h2>
+    <table>
+      <tr><th>Company</th><th>Checkins</th></tr>
+      <% for(var i=0; i<pages.sort(function(a,b){return b.checkins - a.checkins;}).length; i++) {%>
+        <tr><td><a href="/<%= pages[i].name %>"><%= pages[i].name %></a></td><td><%= pages[i].checkins %></td></tr>
+      <% } %>
+    </table>
+
+    <h2>People talking about</h2>
+    <table>
+      <tr><th>Company</th><th>Checkins</th></tr>
+        <% for(var i=0; i<pages.sort(function(a,b){return b.talking_about_count - a.talking_about_count;}).length; i++) {%>
+          <tr><td><a href="/<%= pages[i].name %>"><%= pages[i].name %></a></td><td><%= pages[i].talking_about_count %></td></tr>
+        <% } %>
+    </table>
+
+    <h2>Twitter followers</h2>
+    <table>
+      <tr><th>#</th><th>Company</th><th>Followers</th></tr>
+        <% for(var i=0; i<twitter_accounts.sort(function(a,b){return b.followers_count - a.followers_count;}).length; i++) {%>
+          <tr><td><%= i+1 %></td><td><a href="/<%= companies[twitter_accounts[i].screen_name.toLowerCase()].name %>"><%= companies[twitter_accounts[i].screen_name.toLowerCase()].name %></a></td><td><%= twitter_accounts[i].followers_count %></td></tr>
+        <% } %>
+
+    </table>
+    <iframe src="/chart/bubblechart" marginwidth="0" marginheight="0" scrolling="no" style="height: 960px;"></iframe>
+   
