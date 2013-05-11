@@ -41,15 +41,11 @@
       
       <input ng-model="query" placeholder="Sök efter webbyrå...">
 
-   <!--   <a href="#example" class="openModal">Eller visa alla</a> -->
-
-     
 
 
 <aside id="example" class="modal" ng-class={'foreground_modal':activeCompany}>
     <div>
-        <p>"företagets logga, ta från facebook/twitter?"<p>
-        <h2>{{activeCompany.name}}</h2>
+        <h1>{{activeCompany.name}}</h1>
         <ul>
           <li><a hfre="{{activeCompany.website}}">Hemsida</a></li>
           <li><a hfre="{{activeCompany.link}}">Facebooksida</a></li>
@@ -74,23 +70,7 @@
               ui-options="mapOptions">
               </div>-->
 
-       <h1>Nullam In Dui</h1>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis.</p>
-
-<h2>Sed Auctor Neque</h2>
-
-<p>Porttitor posuere. Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus tortor. Nulla facilisi. Duis aliquet egestas purus in blandit. Curabitur vulputate, ligula lacinia scelerisque tempor, lacus lacus ornare ante, ac egestas est urna sit amet arcu. Class aptent taciti.</p>
-
-<p>Sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed molestie augue sit.</p>
-
-<h2>Class Aptent Taciti</h2>
-
-<p>Amet leo consequat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta. Sed nec diam eu diam mattis viverra.</p>
-
-<p>Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris enim. Morbi euismod magna ac lorem rutrum elementum. Donec viverra auctor lobortis. Pellentesque eu est a nulla placerat dignissim. Morbi a.</p>
-
-<p>Enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi. Aliquam erat volutpat. Mauris vel neque sit amet nunc gravida congue sed sit.</p>
+       
 
 
         <a href="#close" ng-click="activeCompany=null" title="Close">Close</a>
@@ -145,12 +125,14 @@
 
 <section class="case">
 <ul>
-      <li>
+      <li class="animated flipInX">
 
 
-          <h2>Likes</h2>
-          <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=likes"></iframe>
-        <!--  <table class="table table-striped">
+
+          <h2>Gillar</h2>
+          <table class="table table-striped">
+
+        
             <thead>
               <tr>
                 <th>#</th>
@@ -170,15 +152,14 @@
 
           </li>
 
-      <li>
+      <li class="animated flipInX">
 
 
 
 
-         <h2>Twitter followers</h2>
-          <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=followers_count"></iframe>
 
-      <!--<table class="table table-striped">
+         <h2>Följare</h2>
+       <table class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -192,19 +173,17 @@
             <%}%>
           <% } %>
 
-      </table>-->
+      </table>
 
 
 
       </li>
 
-      <li>
+      <li class="animated flipInX">
 
 
-      <h2>Active fans</h2>
-       <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=talking_about_count"></iframe>
-
-     <!-- <table class="table table-striped">
+      <h2>Aktiva fans</h2>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -217,19 +196,17 @@
                 <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].talking_about_count %></td></tr>
               <% } %>
             <% } %>
-      </table>-->
+      </table>
    
 
 
     </li>
 
-      <li>
+      <li class="animated flipInX">
 
 
-         <h2>Were here</h2>
-          <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=were_here_count"></iframe>
-
-      <!--<table class="table table-striped">
+         <h2>Var här</h2>
+         <table class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -242,7 +219,7 @@
             <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].were_here_count %></td></tr>
           <% } %>
         <% } %>
-      </table>-->
+      </table>
 
 
 
@@ -251,10 +228,8 @@
       <li>
 
 
-    <h2>Checkins</h2>
-     <iframe frameBorder="0" style=" overflow:hidden; overflow-x: hidden; overflow-y: hidden; margin:0px;padding:0px; height:100%; width:100%" src="chart/bubblechart?metric=checkins"></iframe>
-
-      <!--<table class="table table-striped">
+    <h2>Incheckningar</h2>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>#</th>
@@ -267,11 +242,11 @@
             <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].checkins %></td></tr>
           <% } %>
         <% } %>
-      </table> -->
+      </table>
 
       </li>
 
-      <li>
+     <li class="animated flipInX">
 
       <h2>Var jobbar dina vänner?</h2>
       <button class='btn' ng-click="Facebook.login()">Connect with Facebook</button>  

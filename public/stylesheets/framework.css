@@ -17,9 +17,10 @@ input {
 
     margin: 1em auto;
     display: block;
-    width: 50%;
+    
+
+    width: 40%;
     background: #ccc;
-    text-align: center;
     padding: 25px;
     border-radius: 7px;
     background: #fff;
@@ -28,12 +29,16 @@ input {
     font-size: 2rem;
     font-family: "ff-meta-serif-web-pro",serif;
 font-style: italic;
-font-weight: 500;
+
+
+    height: 26px;
+
+    font-weight: 500;
 
 }
 
 h1 {font-size: 5rem; line-height: 4rem; margin: 0; text-align: center; }
-h2 {font-size: 3.4rem; line-height: 3rem; }
+h2 {font-size: 3.4rem; line-height: 3rem; margin: 21px 0px 34px 0px;}
 h3 {font-size: 4rem; line-height: 6.3rem; margin: 0; }
 p {font-size: 1.8rem; line-height: 2.7rem; max-width: 70rem; }
 p + p {line-height: 2.7rem;}
@@ -48,8 +53,7 @@ a {color: #e44d26;}
 .search { max-width: 78rem; margin: 0 auto; padding: 0 2rem 2rem 2rem;}
 
 .case {margin-top: 6rem;}
-.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;  -webkit-animation: minimise 500ms linear;
-    -moz-animation: minimise 500ms linear;}
+.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 2rem; border-radius: 10px;}
 .case img {display: block; margin: 0 auto; max-width: 100%;}
 .case > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 .casecontent {max-width: 55rem; margin: 0 auto;}
@@ -183,7 +187,7 @@ a {color: #e44d26;}
 
 .foreground_modal {
     overflow : scroll;
-    background-color : white;
+   
 }
 
 .foreground_body {
@@ -205,7 +209,7 @@ a {color: #e44d26;}
     -moz-animation: mymove 100ms linear;
 
     /* Prettify */
-    padding: 30px;
+    padding: 50px;
     border-radius: 3px;
     background: #fff;
 }
@@ -233,6 +237,8 @@ to {top:0px;}
     font-size: 36px;
     padding: 0 0 20px;
 }
+
+.modal h1 {text-align: left;}
 
 
 @-webkit-keyframes minimise {
