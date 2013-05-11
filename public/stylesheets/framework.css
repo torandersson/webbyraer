@@ -38,7 +38,7 @@ font-style: italic;
 }
 
 h1 {font-size: 5rem; line-height: 4rem; margin: 0; text-align: center; }
-h2 {font-size: 3.4rem; line-height: 3rem; }
+h2 {font-size: 3.4rem; line-height: 3rem; margin: 21px 0px 34px 0px;}
 h3 {font-size: 4rem; line-height: 6.3rem; margin: 0; }
 p {font-size: 1.8rem; line-height: 2.7rem; max-width: 70rem; }
 p + p {line-height: 2.7rem;}
@@ -187,7 +187,7 @@ a {color: #e44d26;}
 
 .foreground_modal {
     overflow : scroll;
-    background-color : white;
+   
 }
 
 .foreground_body {
