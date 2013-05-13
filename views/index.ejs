@@ -2,7 +2,7 @@
 <html lang="en" ng-app="myApp" ng-controller="FacebookLikeCtrl">
   <% include head %>
   <body ng-cloak ng-class="{'background':activeCompany !=null, 'foreground_body':activeCompany==null}">
-    <script>
+ <!--   <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
     FB.init({
@@ -26,7 +26,7 @@
      ref.parentNode.insertBefore(js, ref);
    }(document));
 
-</script>
+</script> -->
 
 
 
@@ -79,8 +79,8 @@
     </div>
 </aside>
 
-      
-        
+
+
 <section class="results hide" ng-class="{'show': companies.length > 0}">
 
   <ul>
@@ -102,8 +102,15 @@
           </thead>
 
           <tbody>
+<<<<<<< HEAD
             <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
              
+=======
+              <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
+              <td>{{$index+1}}
+               
+              </td>
+>>>>>>> abef14f835ba8fededa65230475650c7bb41b5bf
 
               <td><a href="#example" ng-click="$parent.ShowCompanyInformationModal(company)" class="openModal">{{company.name}}</a></td>
               <td data-ng-bind-html-unsafe="company.likes"></td>
@@ -125,7 +132,11 @@
 
 <section class="case">
 <ul>
+<<<<<<< HEAD
       <li class="animated flipInX tweet">
+=======
+      <li id="likes" class="animated flipInX" ui-jq="waypoint" ui-options="likesscrolled">
+>>>>>>> abef14f835ba8fededa65230475650c7bb41b5bf
 
 
 
@@ -153,7 +164,7 @@
 
           </li>
 
-      <li class="animated flipInX">
+      <li id="followers" class="animated flipInX">
 
 
 
@@ -181,7 +192,7 @@
 
       </li>
 
-      <li class="animated flipInX">
+      <li id="activeFans" class="animated flipInX">
 
 
       <h2 class="start">Aktiva fans</h2>
@@ -204,7 +215,7 @@
 
     </li>
 
-      <li class="animated flipInX">
+      <li id="wasHere" class="animated flipInX">
 
 
           <h2 class="start">Var här</h2>
@@ -228,7 +239,11 @@
 
       </li>
 
+<<<<<<< HEAD
           <li class="animated flipInX">
+=======
+      <li id="checkins" class="animated flipInX">
+>>>>>>> abef14f835ba8fededa65230475650c7bb41b5bf
 
 
     <h2 class="start">Incheckingar</h2>

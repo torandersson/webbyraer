@@ -14,6 +14,13 @@ function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
   $scope.properties = [];
   $scope.orderProp = "likes";
 
+
+  
+  $scope.likesscrolled = function()
+  {
+            
+  }
+
   /*$scope.mapOptions = {
     center: new google.maps.LatLng(59.324, 18.069423337342),
     zoom: 14,

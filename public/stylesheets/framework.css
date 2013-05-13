@@ -53,8 +53,13 @@ a {color: #e44d26;text-decoration: none;}
 
 .search { max-width: 78rem; margin: 0 auto; padding: 0 2rem 2rem 2rem;}
 
+<<<<<<< HEAD
 .case {margin: 3rem auto;  max-width: 1280px;}
 .case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 3rem; border-radius: 3px; }
+=======
+.case {margin-top: 6rem;}
+.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: 3rem; padding: 3rem; border-radius: 10px;}
+>>>>>>> abef14f835ba8fededa65230475650c7bb41b5bf
 .case img {display: block; margin: 0 auto; max-width: 100%;}
 .case > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 
