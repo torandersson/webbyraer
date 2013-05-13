@@ -16,7 +16,7 @@ exports.index = function(request, response){
  	if(!date)
  	{
  		date = getDate();
- 		
+ 		console.log("date")
  	}
 
 	// using async library to get information in parallell

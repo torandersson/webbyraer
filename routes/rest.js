@@ -19,7 +19,7 @@ exports.index = function(request, response){
  		from.setDate(from.getDate()-1);
  		dates.push(getDate(from));
  		var tmpDate = new Date();
- 		tmpDate.setDate(tmpDate.getDate()-2);
+ 		tmpDate.setDate(tmpDate.getDate()-7);
  		dates.push(getDate(tmpDate))
  	}
 
