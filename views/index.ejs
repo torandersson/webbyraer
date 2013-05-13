@@ -35,13 +35,30 @@
       <div id='fb-root'></div>
     
     </section>
+ <nav class="menutop clearfix">
+        
+            <ul>
+                <li><a href="*">?</a></li>
+             
 
-    <article class="intro">
+            </ul>
+       
+          
+
+    </nav>
+        
+<section id="second" class="story" data-speed="4" data-type="background">
+    <article>
+      <article class="intro">
  <img src="../../images/logo.png">
     </article>
+     <input ng-model="query" placeholder="Sök efter webbyrå...">
+    </article>
+  </section>
+    
 
           
-      <input ng-model="query" placeholder="Sök efter webbyrå...">
+     
 
 
 
@@ -143,16 +160,10 @@
           <table class="table table-striped">
 
         
-            <thead>
-              <tr>
-                <th>Företag</th>
-                <th style="text-align: right;">Antal</th>
-                
-               </tr>
-            </thead>
+
             <% for(var i=0; i<pages.sort(function(a,b){return b.likes - a.likes;}).length; i++) {%>
               <% if (i < 5) { %>
-                <tr><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].likes %></p></td></tr>
+                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].likes %></p></td><td><img src="../../images/like.png"></td></tr>
               <% } %>
             <% } %>
           </table>
