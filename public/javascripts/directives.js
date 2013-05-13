@@ -10,7 +10,7 @@ var module = angular.module('myApp.directives', ['$strap.directives']);
       elm.text(version);
     };
   }]);
-
+angular.module('waypoints', ['ui']);
 
 /*module.directive('popover', function(){
     return function(scope,linkElement) {
