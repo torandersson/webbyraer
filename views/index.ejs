@@ -85,11 +85,11 @@
 
   <ul>
     <li class="animated flipInX" >
-      <h2>Sökresultat</h2> 
-      <table>
+      <h2>Resultat</h2> 
+      <table class="table table-striped">
           <thead>
             <tr>
-              <th>#</th>
+             
               <th>Företag</th>
               <th><a ng-click="orderProp='likes'">Likes</a></th>
               <th><a ng-click="orderProp='like_trend'">Trend</a></th>
@@ -103,9 +103,7 @@
 
           <tbody>
             <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
-              <td>{{$index+1}}
-               
-              </td>
+             
 
               <td><a href="#example" ng-click="$parent.ShowCompanyInformationModal(company)" class="openModal">{{company.name}}</a></td>
               <td data-ng-bind-html-unsafe="company.likes"></td>
@@ -127,25 +125,25 @@
 
 <section class="case">
 <ul>
-      <li class="animated flipInX">
+      <li class="animated flipInX tweet">
 
 
 
           <h2 class="start">Gillar</h2>
-          <p class="start">Topp 10</p>
+          <p class="start">Topp 5</p>
           <table class="table table-striped">
 
         
             <thead>
               <tr>
-                <th>#</th>
                 <th>Företag</th>
-                <th>Facebook likes</th>
-              </tr>
+                <th style="text-align: right;">Antal</th>
+                
+               </tr>
             </thead>
             <% for(var i=0; i<pages.sort(function(a,b){return b.likes - a.likes;}).length; i++) {%>
-              <% if (i < 10) { %>
-                <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].likes %></td></tr>
+              <% if (i < 5) { %>
+                <tr><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].likes %></p></td></tr>
               <% } %>
             <% } %>
           </table>
@@ -161,18 +159,19 @@
 
 
 
-         <h2>Följare</h2>
+         <h2 class="start">Följare</h2>
+          <p class="start">Topp 10</p>
        <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Antal</th>
             <th>Företag</th>
-            <th>Followers</th>
+            
           </tr>
         </thead>
        <% for(var i=0; i<twitter_accounts.sort(function(a,b){return b.followers_count - a.followers_count;}).length; i++) {%>
             <% if(i <10) {%>
-            <tr><td><%= i+1 %></td><td><a href="<%=companies[twitter_accounts[i].screen_name.toLowerCase()].url %>"><%= companies[twitter_accounts[i].screen_name.toLowerCase()].name %></a></td><td><%= twitter_accounts[i].followers_count %></td></tr>
+            <tr><td><p class="numbers"><%= twitter_accounts[i].followers_count %></p></td><td><a href="<%=companies[twitter_accounts[i].screen_name.toLowerCase()].url %>"><%= companies[twitter_accounts[i].screen_name.toLowerCase()].name %></a></td></tr>
             <%}%>
           <% } %>
 
@@ -185,18 +184,18 @@
       <li class="animated flipInX">
 
 
-      <h2>Aktiva fans</h2>
+      <h2 class="start">Aktiva fans</h2>
+          <p class="start">Topp 10</p>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Antal</th>
             <th>Företag</th>
-            <th>Fans</th>
           </tr>
         </thead>
         <% for(var i=0; i<pages.sort(function(a,b){return b.talking_about_count - a.talking_about_count;}).length; i++) {%>
               <% if (i < 10) { %>
-                <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].talking_about_count %></td></tr>
+                <tr><td><%= pages[i].talking_about_count %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td></tr>
               <% } %>
             <% } %>
       </table>
@@ -208,18 +207,19 @@
       <li class="animated flipInX">
 
 
-         <h2>Var här</h2>
+          <h2 class="start">Var här</h2>
+          <p class="start">Topp 10</p>
          <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Antal</th>
             <th>Företag</th>
-            <th>were here</th>
+            
           </tr>
         </thead>
         <% for(var i=0; i<pages.sort(function(a,b){return b.were_here_count - a.were_here_count;}).length; i++) {%>
           <% if (i < 10) { %>
-            <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].were_here_count %></td></tr>
+            <tr><td><%= pages[i].were_here_count %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td></tr>
           <% } %>
         <% } %>
       </table>
@@ -228,21 +228,22 @@
 
       </li>
 
-      <li>
+          <li class="animated flipInX">
 
 
-    <h2>Incheckningar</h2>
+    <h2 class="start">Incheckingar</h2>
+          <p class="start">Topp 10</p>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>#</th>
+            <th>Antal</th>
             <th>Företag</th>
-            <th>Checkins</th>
+            
           </tr>
         </thead>
         <% for(var i=0; i<pages.sort(function(a,b){return b.checkins - a.checkins;}).length; i++) {%>
           <% if (i < 10) { %>
-            <tr><td><%= i+1 %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td><td><%= pages[i].checkins %></td></tr>
+            <tr><td><%= pages[i].checkins %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td></tr>
           <% } %>
         <% } %>
       </table>
@@ -251,7 +252,8 @@
 
      <li class="animated flipInX">
 
-      <h2>Var jobbar dina vänner?</h2>
+      <h2 class="start">Var jobbar dina vänner?</h2>
+        
       <button class='btn' ng-click="Facebook.login()">Connect with Facebook</button>  
       <div ng-show="Facebook.getAuth()">
       <!--  <h4>Access Token:</h4>
@@ -285,9 +287,8 @@
 
 
 
+
     <% include foot %>  
 
-<script type="text/javascript" src="//use.typekit.net/wtv1zzi.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </body>
 </html>
