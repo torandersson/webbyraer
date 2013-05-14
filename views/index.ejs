@@ -124,9 +124,7 @@
              
 
               <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
-              <td>{{$index+1}}
-               
-              </td>
+              
 
 
               <td><a href="#example" ng-click="$parent.ShowCompanyInformationModal(company)" class="openModal">{{company.name}}</a></td>

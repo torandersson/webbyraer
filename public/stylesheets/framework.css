@@ -22,7 +22,7 @@ input {
     border-radius: 2px;
     background: #fff;
     border: none;
-    box-shadow: inset 0 4px 0px rgba(0,0,0,.1);
+    box-shadow:  0 3px 0px rgba(0,0,0,.1);
     font-size: 2rem;
 font-family: "futura-pt",sans-serif;
 font-style: italic;
@@ -41,7 +41,7 @@ font-style: normal;
 font-weight: 300;}
 
 h3 {font-size: 4rem; line-height: 6.3rem; margin: 0; }
-p {font-size: 1.8rem; line-height: 2.7rem; max-width: 70rem; }
+p {font-size: 1.4rem; line-height: 1.8rem; max-width: 70rem; }
 p + p {line-height: 2.7rem;}
 a {color: #8f7292;text-decoration: none;}
 
@@ -56,7 +56,7 @@ a {color: #8f7292;text-decoration: none;}
 
 
 .case {margin: 3rem auto;  max-width: 1280px;}
-.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: -3rem 3rem 6rem 3rem; padding: 3rem; border-radius: 3px; }
+.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: -3rem 3rem 6rem 3rem; padding: 3rem; border-radius: 1px; }
 .case img {display: block; margin: 23px auto 0; max-width: 100%;}
 .case > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 
@@ -100,8 +100,8 @@ margin: 21px 0px 34px 0px;
 .results > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden;}
-.menutop { height: 8rem; display: block; position: absolute; top: 0; left: 0; } 
-    .menutop > ul {float: left;}
+.menutop { height: 8rem; display: block; position: absolute; top: 0; left: 0; width: 100%;} 
+    .menutop > ul {float: right;}
     .menutop > ul a {font-size: 7.4rem; border-bottom: none; color: white;padding: 1rem 1.5rem 1rem 1.5rem;}
     .menutop > ul a:hover {background: red; color: white;}
     .menutop > ul li {float: left;}
@@ -274,10 +274,10 @@ to {top:0px;}
   background-repeat: no-repeat;
   background-position: center 0px;
   
-    background-size: 1860px 381px;
+    background-size: 1860px 322px;
   
 
-    padding-top: 450px;
+    padding-top: 372px;
 }
 
 
@@ -307,11 +307,10 @@ to {top:0px;}
 /* Modal close link */
 .modal a[href="#close"] {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -9px;
+    top: -108px;
     color: transparent;
 }
-
 /* Reset native styles */
 .modal a[href="#close"]:focus {
     outline: none;
@@ -339,8 +338,7 @@ to {top:0px;}
     width: 55px;
     height: 56px;
     color: #fff;
-    border: 3px solid #fff;
-    border-radius: 20px;
+    
     }
 
     .modal a[href="#close"]:focus:after,
@@ -355,20 +353,10 @@ to {top:0px;}
 
 /* Open modal */
 a.openModal {
-    margin: 1em auto;
     display: block;
-    width: 200px;
-    background: #ccc;
-    text-align: center;
-    padding: 10px;
-    border-radius: 7px;
-    background: #fff;
-    background: -moz-linear-gradient(#fff, #ddd);
-    background: -webkit-linear-gradient(#fff, #ddd);
-    background: -o-linear-gradient(#fff, #ddd);
-    text-shadow: 0 1px 0 #fff;
-    border: 1px solid rgba(0,0,0,0.1);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+d    
+    
+    
 }
 
 a.openModal:hover,
@@ -411,7 +399,7 @@ table {
 
 .table th,
 .table td {
-  padding: 8px;
+  padding: 1px;
   line-height: 24px;
   text-align: left;
   vertical-align: top;
