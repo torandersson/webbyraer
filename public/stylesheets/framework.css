@@ -34,7 +34,7 @@ font-weight: 300;
 
 }
 
-h1 {font-size: 5rem; line-height: 4rem; margin: 0; text-align: center; }
+h1 {font-size: 5.5rem; line-height: 4rem; margin: 0; text-align: center; font-weight: 300; }
 h2 {font-size: 3.4rem; line-height: 3rem; margin: 21px 0px 34px 0px;
 
 font-style: normal;
@@ -235,7 +235,7 @@ margin: 21px 0px 34px 0px;
 /* Content */
 .modal > div {
 
-    width: 100%;
+    width: 916px;
     height: 100%;
     background: #fff;
     position: relative;
@@ -270,11 +270,10 @@ to {top:0px;}
 .modal:target > div {
     -webkit-animation: mymove2 500ms linear;
 
-         background-image: url('../../images/map.jpg');
+ background-image: url('../../images/map.jpg');
   background-repeat: no-repeat;
   background-position: center 0px;
   
-    background-size: 1860px 322px;
   
 
     padding-top: 372px;
@@ -307,7 +306,7 @@ to {top:0px;}
 /* Modal close link */
 .modal a[href="#close"] {
     position: absolute;
-    right: -9px;
+    right: -130px;
     top: -108px;
     color: transparent;
 }
@@ -668,6 +667,15 @@ table th[class*="span"],
   background-color: #c4e3f3;
 }
 
+
+
+#second { background: url(../../images/fussball.png) 50% 0 no-repeat fixed; }
+
+/* Background Only */
+#second { padding: 50px 0;}
+
+#second article p { margin-bottom: 25px; }
+#second article a { color: #ff0;}
 
 
 #second { background: url(../../images/fussball.png) 50% 0 no-repeat fixed; }
