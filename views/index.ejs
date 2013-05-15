@@ -63,7 +63,9 @@
 
 
 <aside id="example" class="modal" ng-class={'foreground_modal':activeCompany}>
-    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=14&size=640x161&scale=2&maptype=roadmap&sensor=true');">
+    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=7&size=640x161&scale=2&maptype=roadmap&sensor=true');">
+      <span class="poi">hej</span>
+      <div class="companyinfo">
         <h1>{{activeCompany.name}}</h1>
         <ul>
           <li><a href="{{activeCompany.website}}">Hemsida</a></li>
@@ -89,7 +91,7 @@
               ui-options="mapOptions">
               </div>-->
 
-       
+       </div>
 
 
         <a href="#close" ng-click="activeCompany=null" title="Close">Close</a>
