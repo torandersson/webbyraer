@@ -40,7 +40,7 @@ exports.index = function(request, response){
 	},
 	
 	function(err, results) {
-    response.render('index', {title:"Webbyråer i Sverige",companies:pagesList.getAsHash(), pages: results.facebook,twitter_accounts:results.twitter});
+    	response.render('index', {title:"Webbyråer i Sverige",companies:pagesList.getAsHash(), pages: results.facebook,twitter_accounts:results.twitter});
 	});
 };
 
