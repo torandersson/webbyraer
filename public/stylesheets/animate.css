@@ -460,7 +460,7 @@ body { /* Addresses a small issue in webkit: http://bit.ly/NEdoDq */
 	-o-animation-name: flipInX;
 	backface-visibility: visible !important;
 	animation-name: flipInX;
-	-webkit-transform-origin: 50% 100px;
+	-webkit-transform-origin: 50% 0px;
 
 }
 @-webkit-keyframes flipOutX {
