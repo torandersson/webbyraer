@@ -35,6 +35,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/:pagename', companydetail.index);
 app.get('/users', user.list);
+app.get('/rest/companies/:id',rest.index);
 app.get('/rest/companies',rest.index);
 app.get('/chart/bubblechart',chart.bubblechart)
 

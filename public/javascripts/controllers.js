@@ -4,38 +4,15 @@
 function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
   
   $scope.popover = {
-  "title" : "Friends",
-  "content": "Hello Popover<br />This is a multiline message!",
-  "saved": false
+    "title" : "Friends",
+    "content": "Hello Popover<br />This is a multiline message!",
+    "saved": false
   };
   
   $scope.companies = [];
   $scope.companiesPreSearch = [];
   $scope.properties = [];
   $scope.orderProp = "likes";
-
-
-  
-  $scope.likesscrolled = function()
-  {
-            
-  }
-
-  /*$scope.mapOptions = {
-    center: new google.maps.LatLng(59.324, 18.069423337342),
-    zoom: 14,
-    mapTypeId: google.maps.MapTypeId.ROADMAP,
-    styles: [
-      {
-        "stylers": [
-          { "gamma": 0.26 },
-          { "lightness": 40 },
-          { "saturation": -86 },
-          { "hue": "#0044ff" }
-        ]
-      }
-    ]
-  };*/
 
   restData.query(function(result) {
     $scope.companiesPreSearch = result;
@@ -57,15 +34,14 @@ function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
       $scope.companies = $scope.companiesPreSearch;
     
     for (var i = $scope.companies.length - 1; i >= 0; i--) {
-       if($scope.works[$scope.companies[i].id]){
+       if($scope.works[$scope.companies[i].id]) {
           $scope.companies[i].number_of_friends = $scope.works[$scope.companies[i].id].length;
           $scope.companies[i].friends = $scope.works[$scope.companies[i].id];
           $scope.companies[i].popover = $scope.CreatePopover($scope.works[$scope.companies[i].id])
         }
-        else
+        else {
           $scope.companies[i].number_of_friends = 0;
-
-        
+        }   
     };
   });
 
@@ -81,13 +57,7 @@ function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
                   $scope.works[friend.work[0].employer.id].push({id:friend.id,img:"http://graph.facebook.com/"+friend.id+"/picture?type=square"});
                 }
               };
-
-
-
-
               $scope.$emit("loadedwork");
-             //console.log("works",$scope.works);
-
       });
   });
 

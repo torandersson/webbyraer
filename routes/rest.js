@@ -8,10 +8,10 @@ var cache = require('memory-cache');
  */
 
 exports.index = function(request, response){
-	var list = pagesList.getIds("facebookid");
-	var twitterList = pagesList.getIds("twitterid");
- 	var dates = [];
- 	var date = request.query["date"];
+	var list = pagesList.getIds("facebookid")
+	  , twitterList = pagesList.getIds("twitterid")
+ 	  , dates = []
+ 	  , date = request.query["date"];
 
  	if(!date)
  	{
