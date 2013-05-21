@@ -62,19 +62,34 @@
 
 
 
-<aside id="example" class="modal" ng-class={'foreground_modal':activeCompany}>
 
-    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=7&size=640x161&scale=2&maptype=roadmap&sensor=true');">
+<aside id="example" class="modal " ng-class={'foreground_modal':activeCompany}>
+    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=6&size=640x120&scale=2&maptype=hybrid&sensor=true');">
+
       <span class="poi">hej</span>
       <div class="companyinfo">
+        
         <h1>{{activeCompany.name}}</h1>
-        <ul>
+        <ul class="stats">
+            <li><p class="bignumber">{{activeCompany.likes}}</p> <p class="bignumberdesc">gillar</p></li>
+            <li><p class="bignumber">{{activeCompany.followers_count}}</p> <p class="bignumberdesc">följare</p></li>
+            <li><p class="bignumber">{{activeCompany.talking_about_count}}</p> <p class="bignumberdesc"> pratar om</p></li>
+            <li><p class="bignumber">{{activeCompany.were_here_count}}</p> <p class="bignumberdesc"> var här</p></li>
+
+        </ul>
+        
+       
+
+        <p>{{activeCompany.about}}</p>
+
+         <ul>
           <li><a href="{{activeCompany.website}}">Hemsida</a></li>
           <li><a href="{{activeCompany.link}}">Facebooksida</a></li>
+          <li><a href="{{activeCompany.link}}">Visa på karta</a></li>
+
          <!-- <li>Twitter</li> -->
         </ul>
-        <p>{{activeCompany.about}}</p>
-              <h2>Karta</h2>
+        
 
                 <!-- this is the confusing part. we have to point the map marker directive
   at an existing google.maps.Marker object, so it can hook up events -->
@@ -105,24 +120,8 @@
 
   <ul>
     <li class="animated flipInX" >
-      <h2>Resultat</h2> 
       <table class="table table-striped">
-          <thead>
-            <tr>
-             
-              <th>Företag</th>
-              <th><a ng-click="orderProp='likes'">Likes</a></th>
-              <th><a ng-click="orderProp='like_trend'">Trend</a></th>
-              <th><a ng-click="orderProp='followers_count'">Twitter följare</a></th>
-              <th><a ng-click="orderProp='checkins'">Checkins</a></th>
-              <th><a ng-click="orderProp='talking_about_count'">Talking about</a></th>
-              <th><a ng-click="orderProp='were_here_count'">Were here</a></th>
-              <!-- <th><a ng-click="orderProp='number_of_friends'">Friends</a></th> -->      
-            </tr>
-          </thead>
-
-          <tbody>
-
+   
             
              
 
@@ -131,15 +130,8 @@
 
 
               <td><a href="#example" ng-click="$parent.ShowCompanyInformationModal(company)" class="openModal">{{company.name}}</a></td>
-              <td data-ng-bind-html-unsafe="company.likes"></td>
               <td><i title="{{company.like_trend}} sedan igår" ng-class="{'icon-arrow-down': company.like_trend<0,'icon-arrow-up': company.like_trend>0, 'icon-arrow-right': company.like_trend==0}"></i></td>
-              <td data-ng-bind-html-unsafe="company.followers_count"></td>
-              <td data-ng-bind-html-unsafe="company.checkins"></td>
-              <td data-ng-bind-html-unsafe="company.talking_about_count"></td>
-              <td data-ng-bind-html-unsafe="company.were_here_count"></td>
-              <!--<td>
-                 <a ng-class="{'hide':company.number_of_friends == 0}" bs-popover="company.popover" data-unique="1" data-original-title="With Angular" data-trigger="hover" data-html="true" data-placement="left">{{company.number_of_friends}}</a>
-              </td> -->
+              
             </tr>
           </tbody>
         </table>
