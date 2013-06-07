@@ -62,13 +62,11 @@
   </section>
     
 
-          
-     
 
 
 
 <aside id="example" class="modal " ng-class={'foreground_modal':activeCompany}>
-    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=3&size=640x120&scale=2&maptype=hybrid&sensor=true');">
+    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=5&size=640x120&scale=2&maptype=roadmap&sensor=true');">
       <span class="poi">hej</span>
       <div class="companyinfo">
         
@@ -85,7 +83,7 @@
 
         <p>{{activeCompany.about}}</p>
 
-         <ul>
+         <ul class="rellinks">
           <li><a href="{{activeCompany.website}}">Hemsida</a></li>
           <li><a href="{{activeCompany.link}}">Facebooksida</a></li>
           <li><a href="{{activeCompany.link}}">Visa på karta</a></li>
