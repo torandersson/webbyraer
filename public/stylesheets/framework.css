@@ -2,7 +2,7 @@ section, article, header, footer, nav, aside, hgroup {display: block;}
 
 html {font-size: 10px; color: #302f2a;}
 
-body { background-color: #c1a968; margin: 0; padding: 0;   font-family: "futura-pt",sans-serif;
+body { background-color: #c7b166; margin: 0; padding: 0;   font-family: "futura-pt",sans-serif;
 
      
 }
@@ -36,7 +36,7 @@ font-weight: 300;
 
 }
 
-h1 {font-size: 4.5rem; line-height: 4rem; margin: 0; text-align: center; font-weight: 300; }
+h1 {font-size: 3.5rem; line-height: 4rem; margin: 0; text-align: center; font-weight: 300; }
 h2 {font-size: 3.4rem; line-height: 3rem; margin: 21px 0px 34px 0px;
 
 font-style: normal;
@@ -58,7 +58,7 @@ a {color: #8f7292;text-decoration: none;}
 
 
 .case {margin: 3rem auto;  max-width: 960px;}
-.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: -3rem 1.3rem 6rem 1.3rem; padding: 3rem; border-radius: 2px; }
+.case > * > * {padding: 0 2rem 2rem 2rem; background-color: white; margin: -3rem 1.3rem 6rem 1.3rem; padding: 1.7rem 3rem 0rem; border-radius: 2px;}
 .case img {display: block; margin: 23px auto 0; max-width: 100%;}
 .case > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
 
@@ -70,8 +70,12 @@ a {color: #8f7292;text-decoration: none;}
 p.start {
 
 font-style: normal;
+
+
 font-weight: 400;
-color: #8f7292;
+
+
+color: rgb(141, 117, 117);
 
 
 font-size: 1.4rem;
@@ -81,7 +85,9 @@ line-height: 2.8rem;
 text-align: justify;
 text-transform: uppercase;
 display: inline;
-letter-spacing: 2px;
+
+
+letter-spacing: 1px;
 
 
 margin-left: 10px;
@@ -105,9 +111,11 @@ margin: 21px 0px 34px 0px;
 
 
 .results {margin-top: 6rem;}
-.results > * > * { background-color: white; margin: -135px auto 0rem;  width: 363px;border-radius: 0px; box-shadow: 0px 4px 11px 1px rgba(0,0,0,0.3), inset 1px 4px 11px 1px white;}
+.results > * > * { background-color: white; margin: -160px auto 0rem;  width: 363px;border-radius: 0px; box-shadow: 0px 4px 11px 1px rgba(0,0,0,0.3), inset 1px 4px 11px 1px white;}
 .results img {display: block; margin: 0 auto; max-width: 100%;}
 .results > * .link { position:absolute; width:100%; height:100%; top:0; left: 0; z-index: 1;}
+.hangerleft {width: 4px; margin-left: 6px;height: 16px; background-color: #474242;box-shadow: 1px 2px 0px 1px rgba(0,0,0,0.1);z-index: 9999999;top: 0;margin-top: -10px;position: absolute;}
+.hangerright {width: 4px; margin-left: 0;right: 5px;height: 16px; background-color: #474242;box-shadow: 1px 2px 0px 1px rgba(0,0,0,0.1);z-index: 9999999;top: 0;margin-top: -10px;position: absolute;}
 
 .clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden;}
  .menutop { height: 2px; display: block; position: absolute; top: 0; left: 0; width: 100%;} 
@@ -143,9 +151,9 @@ margin: 21px 0px 34px 0px;
     z-index: 10000;
 
     /* Transition opacity on open */
-    -webkit-transition: opacity 200ms ease-in;
-    -moz-transition: opacity 200ms ease-in;
-    transition: opacity 200ms ease-in;
+    -webkit-transition: opacity 100ms ease-in;
+    -moz-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
 
     /* Hide for now */
     opacity: 0;
@@ -196,7 +204,7 @@ margin: 21px 0px 34px 0px;
     -moz-animation: mymove 100ms linear;
 
     /* Prettify */
-    box-shadow: -2px -11px 37px 1px;
+    box-shadow: 0px -15px 37px 3px rgba(0,0,0,0.1), 10px 18px 8px 0px rgba(0,0,0,0.2);
     background: #fff;
 }
 
@@ -316,11 +324,11 @@ a.openModal:focus {
 
 
 
-.companyinfo {padding: 1.5rem; margin-top: 236px;}
+.companyinfo {padding: 1.5rem; margin-top: 251px;}
 .poi {width: 140px; position: absolute;height: 190px; left: 50%;top: -30px;margin-left: -67px;background-image: url('../../images/poi.png');}
 .order {font-size: 1.4rem;line-height: 8.2rem;color: rgb(177, 169, 169);margin: 0;font-weight: 300;}
 
-.stats {    margin: 61px 1px 160px;
+.stats {    margin: 47px 1px 142px;
     max-width: 60rem;}
 .stats li {float: left; width: 25%;}
 .bignumber {font-weight: 400; font-size: 2.1rem; text-align: left;margin: 0; letter-spacing: 0px;}
@@ -332,9 +340,10 @@ text-align: right;
 color: #666;
 letter-spacing: -1px;line-height: 3.5rem;}
 
-.company {font-size: 2.1rem;line-height: 2.5rem;margin: 28px 16px 0px;}
+.company {font-size: 2.5rem;line-height: 2.5rem;font-weight: 100;margin: 28px 16px 0px;}
 
 .rellinks a {font-size: 1.4rem;line-height: 2.5rem;}
+.rellinks  {margin-top: 33px;}
 
 table {
   max-width: 100%;
@@ -487,6 +496,7 @@ table {
 
   border-bottom: 1px solid #e7e7e7;
   border-top: 1px solid #e7e7e7;
+
  
 }
 
@@ -496,8 +506,8 @@ table {
 
 }
 
-.subtext { font-size: 11px; color: #eacfed; letter-spacing: 2px;display: block; line-height: 1.4rem;}
-.resulttable a {color: white;line-height: 28px;}
+.subtext { font-size: 11px; color: #eacfed; letter-spacing: 2px;display: block; line-height: 1.4rem; text-transform: uppercase;}
+.resulttable a {color: white;line-height: 28px;font-size: 18px;letter-spacing: 1px;}
 
 .resulttable tbody > tr:nth-child(odd) > td,
 .resulttable tbody > tr:nth-child(odd) > th {
@@ -650,6 +660,8 @@ table th[class*="span"],
 #second article p { margin-bottom: 25px; }
 #second article a { color: #ff0;}
 
+#second h2 {margin-bottom: -47px; margin-top: 55px; color: white; font-size: 18px; text-align: center; letter-spacing: 1px;}
+
 
 #second { background: url(../../images/fussball.png) 50% 0 no-repeat fixed; }
 
@@ -662,6 +674,9 @@ table th[class*="span"],
 
 @media only screen and (min-width: 1280px) and (min-height:700px){
     html {font-size: 12px;}
+
+    .company {line-height: 3.5rem;}
+
 
  
 
