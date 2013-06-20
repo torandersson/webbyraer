@@ -5,7 +5,7 @@ html {font-size: 10px; color: #302f2a;}
 body { background-color: #c7b166; margin: 0; padding: 0;   font-family: "futura-pt",sans-serif;
 
      
-}
+ background: url(../../images/background.png) 50% 0 repeat repeat;}
 
 ul, li {margin: 0 auto; padding: 0; list-style: none;}
 
@@ -147,7 +147,9 @@ margin: 21px 0px 34px 0px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.7);
+    
+
+    background: rgba(0,0,0,0.8);
     z-index: 10000;
 
     /* Transition opacity on open */
@@ -671,6 +673,7 @@ table th[class*="span"],
 #second article p { margin-bottom: 25px; }
 #second article a { color: #ff0;}
 
+.ball { width: 450px; height: 260px; background-color: red; position: absolute; margin: 20px -40px 0px; z-index: 9999; left: 50%; background: url(../../images/BALL.png) 50% 0 no-repeat no-repeat;} ;}
 
 @media only screen and (min-width: 1280px) and (min-height:700px){
     html {font-size: 12px;}
