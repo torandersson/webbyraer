@@ -35,37 +35,43 @@
       <div id='fb-root'></div>
     
     </section>
- <nav class="menutop clearfix">
+  <nav class="menutop clearfix">
         
             <ul>
-                <li><a href="*">?</a></li>
+                <li><p>BETA</p></li>
              
 
             </ul>
        
-          
+            <aside class="related clearfix">
+                <ul>
+                    <li>?</li>
+                
+                </ul>
+            </aside>
 
     </nav>
         
 <section id="second" class="story" data-speed="4" data-type="background">
+  <span class="ball"></span>
     <article>
       <article class="intro">
  <img src="../../images/logo.png">
     </article>
      <input ng-model="query" placeholder="Sök efter webbyrå...">
     </article>
+    <h2>TOPPLISTOR FÖR WEBBYRÅER I SVERIGE</h2>
   </section>
     
 
-          
-     
 
 
 
 
 <aside id="example" class="modal " ng-class={'foreground_modal':activeCompany}>
-    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=3&size=640x120&scale=2&maptype=hybrid&sensor=true');">
-        <span class="poi">hej</span>
+
+    <div style="background-image: url('http://maps.googleapis.com/maps/api/staticmap?center={{activeCompany.location.latitude}},{{activeCompany.location.longitude}}&zoom=7&size=640x120&scale=2&maptype=hybrid&sensor=true');">
+      <span class="poi">hej</span>
       <div class="companyinfo">
         
         <h1>{{activeCompany.name}}</h1>
@@ -81,7 +87,7 @@
 
         <p>{{activeCompany.about}}</p>
 
-         <ul>
+         <ul class="rellinks">
           <li><a href="{{activeCompany.website}}">Hemsida</a></li>
           <li><a href="{{activeCompany.link}}">Facebooksida</a></li>
           <li><a href="{{activeCompany.link}}">Visa på karta</a></li>
@@ -119,31 +125,29 @@
 
   <ul>
     <li class="animated flipInX" >
-      <table class="table table-striped">
-   
-            
-             
+      <span class="hangerleft"></span>
+       <span class="hangerright"></span>
+      <table class="table resulttable">
+        <tbody>
+          <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
+            <td><a href="#example" ng-click="$parent.ShowCompanyInformationModal(company)" class="openModal">{{company.name}}<br><p class="subtext">{{company.likes}} gillar, {{company.followers_count}} följare</p></a></td>
+          </tr>
+        </tbody>
+      </table>
 
-              <tr ng-repeat="company in companies | filter:query | orderBy:orderProp:true">
-              
-
-
-              <td><a href="#example" ng-click="$parent.ShowCompanyInformationModal(company)" class="openModal">{{company.name}}</a></td>
-              <td><i title="{{company.like_trend}} sedan igår" ng-class="{'icon-arrow-down': company.like_trend<0,'icon-arrow-up': company.like_trend>0, 'icon-arrow-right': company.like_trend==0}"></i></td>
-              
-            </tr>
-          </tbody>
-        </table>
-
-      </li>
+    </li>
 </ul>
+
+
 </section>
 
 
 
 
-
 <section class="case">
+
+  
+
 <ul>
       
       <li id="likes" class="animated flipInX">
@@ -156,7 +160,7 @@
           <table class="table table-striped">
             <% for(var i=0; i<pages.sort(function(a,b){return b.likes - a.likes;}).length; i++) {%>
               <% if (i < 5) { %>
-                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].likes %></p></td><td><img src="../../images/like.png"></td></tr>
+                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%= pages[i].website %>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].likes %></p></td></tr>
               <% } %>
             <% } %>
           </table>
@@ -168,21 +172,16 @@
 
       <li id="followers" class="animated flipInX">
 
-
-
-
-
          <h2 class="start">Följare</h2>
           <p class="start">Topp 5</p>
      
 
         <table class="table table-striped">
-
         
 
        <% for(var i=0; i<twitter_accounts.sort(function(a,b){return b.followers_count - a.followers_count;}).length; i++) {%>
               <% if (i < 5) { %>
-                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%=pages[i].website%>"><%= companies[twitter_accounts[i].screen_name.toLowerCase()].name %></a></p></td><td><p class="numbers"><%= twitter_accounts[i].followers_count %></p></td><td><img src="../../images/like.png"></td></tr>
+                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%= pages[i].website %>"><%= companies[twitter_accounts[i].screen_name.toLowerCase()].name %></a></p></td><td><p class="numbers"><%= twitter_accounts[i].followers_count %></p></td></tr>
               <% } %>
             <% } %>
           </table>
@@ -204,12 +203,16 @@
 
         
 
-       <% for(var i=0; i<pages.sort(function(a,b){return b.talking_about_count - a.talking_about_count;}).length; i++) {%>
+          <% for(var i=0; i<pages.sort(function(a,b){return b.talking_about_count - a.talking_about_count;}).length; i++) {%>
               <% if (i < 5) { %>
-                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].talking_about_count %></p></td><td><img src="../../images/like.png"></td></tr>
+                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].talking_about_count %></p></td></tr>
               <% } %>
-            <% } %>
-          </table>
+          <% } %>
+
+        </table>
+
+
+
    
 
 
@@ -221,19 +224,16 @@
           <h2 class="start">Var här</h2>
           <p class="start">Topp 5</p>
          <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Antal</th>
-            <th>Företag</th>
-            
-          </tr>
-        </thead>
-        <% for(var i=0; i<pages.sort(function(a,b){return b.were_here_count - a.were_here_count;}).length; i++) {%>
-          <% if (i < 10) { %>
-            <tr><td><%= pages[i].were_here_count %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td></tr>
+       <% for(var i=0; i<pages.sort(function(a,b){return b.were_here_count - a.were_here_count;}).length; i++) {%>
+              <% if (i < 5) { %>
+                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].were_here_count %></p></td></tr>
+              <% } %>
           <% } %>
-        <% } %>
       </table>
+
+
+
+     
 
 
 
@@ -245,20 +245,16 @@
 
     <h2 class="start">Incheckingar</h2>
           <p class="start">Topp 5</p>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Antal</th>
-            <th>Företag</th>
-            
-          </tr>
-        </thead>
-        <% for(var i=0; i<pages.sort(function(a,b){return b.checkins - a.checkins;}).length; i++) {%>
-          <% if (i < 10) { %>
-            <tr><td><%= pages[i].checkins %></td><td><a href="<%=pages[i].website%>"><%= pages[i].name %></a></td></tr>
+
+
+             <table class="table table-striped">
+       <% for(var i=0; i<pages.sort(function(a,b){return b.checkins - a.checkins;}).length; i++) {%>
+              <% if (i < 5) { %>
+                <tr><td><p class="order"><%= i+1 %></p></td><td><p class="company"><a href="<%=pages[i].website%>"><%= pages[i].name %></a></p></td><td><p class="numbers"><%= pages[i].checkins %></p></td></tr>
+              <% } %>
           <% } %>
-        <% } %>
       </table>
+
 
       </li>
 

@@ -6,15 +6,10 @@
 
 angular.module('myApp.services', ['ngResource']).
   factory('restData', function($resource){
-    
     return $resource('/rest/companies', {}, {
-    
       query: {method:'GET', params:{exerciseId:'all'}, isArray:true},
-    
-       get: {method:'GET', params:{ids:'all'}}
-    
+      get: {method:'GET', params:{ids:'all'}}
     });
-
 });
 
 

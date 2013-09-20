@@ -2,7 +2,7 @@
 
 /* Controllers */
 function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
-  
+  console.log("here ng");
   $scope.popover = {
     "title" : "Friends",
     "content": "Hello Popover<br />This is a multiline message!",
@@ -15,8 +15,8 @@ function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
   $scope.orderProp = "likes";
 
   restData.query(function(result) {
+     console.log("result",result);
     $scope.companiesPreSearch = result;
-
   });
 
   $scope.ShowCompanyInformationModal = function(company) {
@@ -24,8 +24,10 @@ function FacebookLikeCtrl($scope,restData,$filter,$rootScope) {
   };
 
   $scope.$watch("query",function() {
-    if($scope.companies.length === 0)
+    console.log("searching")
+    if($scope.companies.length === 0) {
       $scope.companies = $scope.companiesPreSearch
+    }
   });
 
   $scope.$on("loadedwork",function(){

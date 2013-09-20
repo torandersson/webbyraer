@@ -1,6 +1,7 @@
 var facebookPages = require("../custom_node_modules/facebookPages.js");
 var twitterAccounts = require("../custom_node_modules/twitterAccounts.js");
 var pagesList = require("../custom_node_modules/pages.js");
+var dateService = require("../custom_node_modules/dateService.js");
 var async = require('async');
 var cache = require('memory-cache');
 var _ = require("underscore");
@@ -13,12 +14,13 @@ exports.index = function(request, response){
 	  , twitterIds = pagesList.getIds("twitterid")
  	  , dates = []
  	  , date = request.query["date"];
-
  	
- 	var dateOne = new Date();
+ 	var dateOne = dateService.GetDate();
+ 	 	
  	dateOne.setDate(dateOne.getDate()-1);
- 	var dateTwo = new Date();
+ 	var dateTwo = dateService.GetDate();
  	dateTwo.setDate(dateTwo.getDate()-2);
+ 	
  	dateOne = getDate(dateOne);
  	dateTwo = getDate(dateTwo);
 
@@ -96,13 +98,10 @@ var zipper = function(facebookList,twitterList){
 var toDictionary = function(list,fn)
 {
 	var result = {};
-    
-	fn = fn || function () {};
-    
-	for (var i = list.length - 1; i >= 0; i--) {
+    fn = fn || function () {};
+    for (var i = list.length - 1; i >= 0; i--) {
 	   result[fn(list[i])] = list[i];
 	};
-
 	return result;
 }
 

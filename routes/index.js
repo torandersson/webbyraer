@@ -1,6 +1,7 @@
 var facebookPages = require("../custom_node_modules/facebookPages.js");
 var twitterAccounts = require("../custom_node_modules/twitterAccounts.js");
 var pagesList = require("../custom_node_modules/pages.js");
+var dateService = require("../custom_node_modules/dateService.js");
 var async = require('async');
 
 /*
@@ -30,27 +31,28 @@ exports.index = function(request, response){
 				callback(null, pagesArray);
 				 
 			});
-    },
-    twitter: function(callback){
-  		twitterAccounts.getByIds(twitterList,date,function(err,accounts){
-				callback(null,accounts)
-    	});
-    }
+	    },
+	    twitter: function(callback){
+	  		twitterAccounts.getByIds(twitterList,date,function(err,accounts){
+					callback(null,accounts)
+	    	});
+    	}
 	},
 	
 	function(err, results) {
-    	response.render('index', {title:"Webbyråer i Sverige",companies:pagesList.getAsHash(), pages: results.facebook,twitter_accounts:results.twitter});
+		console.log("result",results);
+			response.render('index', {title:"Webbyråer i Sverige",companies:pagesList.getAsHash(), pages: results.facebook,twitter_accounts:results.twitter});
 	});
 };
 
 var getDate = function() {
-	var dateNow = new Date()
+	var dateNow = dateService.GetDate()
 	  , dd = {}
 	  , monthSingleDigit = {}
 	  , yy = {}
 	  , formattedDate = {};
 
-	dateNow.setDate(dateNow.getDate()-1);
+	dateNow.setDate(dateNow.getDate()-50);
 	dd = dateNow.getDate();
 	monthSingleDigit = dateNow.getMonth() + 1;
     mm = monthSingleDigit < 10 ? '0' + monthSingleDigit : monthSingleDigit;
