@@ -3,104 +3,109 @@ var twitterAccounts = require("../custom_node_modules/twitterAccounts.js");
 var pagesList = require("../custom_node_modules/pages.js");
 var async = require('async');
 var cache = require('memory-cache');
+var _ = require("underscore");
 /*
  * GET home page.
  */
 
 exports.index = function(request, response){
-	var list = pagesList.getIds("facebookid")
-	  , twitterList = pagesList.getIds("twitterid")
+	var facebookIds = pagesList.getIds("facebookid")
+	  , twitterIds = pagesList.getIds("twitterid")
  	  , dates = []
  	  , date = request.query["date"];
 
- 	if(!date)
- 	{
- 		var from = new Date();
- 		from.setDate(from.getDate()-1);
- 		dates.push(getDate(from));
- 		var tmpDate = new Date();
- 		tmpDate.setDate(tmpDate.getDate()-7);
- 		dates.push(getDate(tmpDate))
- 	}
+ 	
+ 	var dateOne = new Date();
+ 	dateOne.setDate(dateOne.getDate()-1);
+ 	var dateTwo = new Date();
+ 	dateTwo.setDate(dateTwo.getDate()-2);
+ 	dateOne = getDate(dateOne);
+ 	dateTwo = getDate(dateTwo);
 
 	// using async library to get information in parallell
 	async.parallel({
-    facebook: function(callback){
-       facebookPages.getByIds(list,dates,function(err,pages){
-				var pagesArray = [];
-				for(var id in pages){
-					pages[id] = handleUndefinedValues(pages[id]);
-					pagesArray.push(pages[id]);
-				}
+    	facebook: function(callback) {
+      		facebookPages.getByIds(facebookIds,[dateOne,dateTwo],function(err,pages) {	
+				var pagesArray = _.map(pages,handleUndefinedValues);
 				callback(null, pagesArray); 
 			});
-    },
-    twitter: function(callback){
-  		twitterAccounts.getByIds(twitterList,dates,function(err,accounts){
+    	},
+    	twitter: function(callback){
+  			twitterAccounts.getByIds(twitterIds,[dateOne,dateTwo],function(err,accounts){
 				callback(null,accounts)
-    	});
-    }
+    		});
+    	}
 	},
 	
 	function(err, results) {
-    var facebook = results.facebook;
-    var picked1 = {};
-    var picked2 = {};
-    var to = new Date();
-    to.setDate(to.getDate()-1);
-    var compareDate = getDate(to);
-    	
-    for (var i = facebook.length - 1; i >= 0; i--) {
-    	if(facebook[i].collected_at == compareDate){
-    		picked2[facebook[i].id] = facebook[i];
-    	}
-    	else {
-    		picked1[facebook[i].id] = facebook[i];
-    	}
-    };
-    results.facebook = [];
-    	
-    for (var id in picked1) {
-    	picked2[id].like_trend = picked2[id].likes - picked1[id].likes;
-    	results.facebook.push(picked2[id]);
-    };  	
-      
-    var concat = zipper(results.facebook,results.twitter);
+	    var facebook = results.facebook;
+	    	    
+	    results.facebook = [];
 
-    response.json(concat);
+	    var groupedPages = _.groupBy(facebook, function(page){ return page.id });
+
+	    for(var id in groupedPages)
+	    {
+	    	var facebookPages =	groupedPages[id];
+
+	    	if(facebookPages.length == 2)
+	    	{
+	    		var first = facebookPages[0].collected_at == dateOne ? facebookPages[0] : facebookPages[1],
+	    			second = facebookPages[0].collected_at != dateOne ? facebookPages[0] : facebookPages[1]
+
+	    		first.like_trend = first.likes - second.likes;
+
+	    		results.facebook.push(first);
+	    	}
+	    }
+
+	    var concat = zipper(results.facebook,results.twitter);
+
+	    response.json(concat);
 	});
 };
 
-
 var zipper = function(facebookList,twitterList){
 	
-	var hash = {};
-	var results = [];
-	var zip = pagesList.getAsHash();
+	var hash = {}
+	  , results = []
+	  , zip = pagesList.getAsHash();
 
-	for (var i = 0; i < twitterList.length; i++) {
-		hash[twitterList[i].screen_name.toLowerCase()] = twitterList[i];
-	};
+	hash = toDictionary(twitterList,function(item) { return item.screen_name.toLowerCase() });
 	
 	for (var i = 0; i < facebookList.length; i++) {
 		
-		var result = facebookList[i];
+		var result = facebookList[i]
+		  , twitterKey = zip[facebookList[i].id].twitterid || ""
+		  , twitterKey = twitterKey.toLowerCase()
+		  , twitterAccount = hash[twitterKey];
+		 
+		result.followers_count = 0;
 
-		var twitterKey = zip[facebookList[i].id].twitterid;
-
-		if(twitterKey && hash[twitterKey.toLowerCase()]){
-			result.followers_count = hash[twitterKey.toLowerCase()].followers_count;
+		if(twitterAccount){
+			result.followers_count = twitterAccount.followers_count;
 		}
-		else
-		{
-			result.followers_count = 0;
-		}
-
+	
 		results.push(result);
 
 	};
+
 	return results;
 }
+
+var toDictionary = function(list,fn)
+{
+	var result = {};
+    
+	fn = fn || function () {};
+    
+	for (var i = list.length - 1; i >= 0; i--) {
+	   result[fn(list[i])] = list[i];
+	};
+
+	return result;
+}
+
 
 var getDate = function(date){
 	var dd = date.getDate();
